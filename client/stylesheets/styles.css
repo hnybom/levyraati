@@ -1,0 +1,28 @@
+.navbar-right {
+    margin-top: 15px;
+    margin-right: 150px;
+}
+
+.navbar-brand {
+    font-size: 28px;
+}
+.thin-border {
+    -webkit-box-shadow: 5px 3px 5px 0px rgba(50, 50, 50, 0.27);
+    -moz-box-shadow:    5px 3px 5px 0px rgba(50, 50, 50, 0.27);
+    box-shadow:         5px 3px 5px 0px rgba(50, 50, 50, 0.27);
+}
+
+.competitionItem {
+    padding: 2px 5px 5px 5px;
+}
+.competitionItem h3{
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#login-buttons a{
+    color: gray;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+}

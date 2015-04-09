@@ -1,0 +1,19 @@
+<template name="levyraatiMainLayout">
+    <body>
+        {{> header}}
+        <div class="jumbotron">
+            <div class="container">
+                <h1>Levyraati</h1>
+                {{> yield "jumbotron"}}
+            </div>
+        </div>
+
+        <div class="container">
+            {{>yield}}
+            <hr>
+            <footer>
+                <p>© Solita 2015</p>
+            </footer>
+        </div>
+    </body>
+</template>
