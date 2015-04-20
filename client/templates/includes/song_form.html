@@ -1,0 +1,18 @@
+<template name="songForm">
+    <h2>Add new song</h2>
+    <form class="main form">
+        <div class="form-group">
+            <label class="control-label" for="url">Name:</label>
+            <div class="controls">
+                <input name="name" id="name" type="text" value="" placeholder="Song name" class="form-control"/>
+                <span class="help-block"></span>
+            </div>
+            <label class="control-label" for="uri">Uri:</label>
+            <div class="controls">
+                <input name="uri" id="uri" type="text" value="" placeholder="Spotify URI" class="form-control"/>
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <input type="submit" value="Submit" class="btn btn-primary"/>
+    </form>
+</template>
