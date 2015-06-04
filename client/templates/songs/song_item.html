@@ -1,10 +1,17 @@
 <template name="songItem">
-      <div class="col-md-6">
+      <div class="col-md-12">
           <div class="thin-border">
-              <div class="songItem">
+              <div class="songItem" style="padding: 10px">
                   <h3>{{name}}</h3>
-                  <iframe src="https://embed.spotify.com/?uri={{uri}}" width="300" height="380"
-                          frameborder="0" allowtransparency="true"></iframe>
+                  {{#if isSpotify this}}
+                      <iframe src="https://embed.spotify.com/?uri={{uri}}" width="300" height="380"
+                              frameborder="0" allowtransparency="true"></iframe>
+                  {{else}}
+                      <iframe id="ytplayer" type="text/html" width="640" height="390"
+                              src="http://www.youtube.com/embed/{{uri}}?autoplay=0"
+                              frameborder="0">
+                      </iframe>
+                  {{/if}}
               </div>
           </div>
       </div>

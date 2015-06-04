@@ -1,6 +1,18 @@
 /**
  * Created by hnybom on 20.4.15.
  */
+Template.songForm.created = function() {
+    Session.set('songFormErrors', {});
+}
+
+Template.songForm.helpers({
+    errorMessage: function(field) {
+        return Session.get('songFormErrors')[field];
+    },
+    errorClass: function (field) {
+        return !!Session.get('songFormErrors')[field] ? 'has-error' : '';
+    }
+});
 
 Template.songForm.events({
     'submit form': function(e, template) {
@@ -17,7 +29,7 @@ Template.songForm.events({
 
         var errors = validateSong(song);
 
-        if (errors.name)
+        if (errors.name || errors.uri)
             return Session.set('songFormErrors', errors);
 
         Meteor.call('insertSong', song, function(error, result) {
@@ -26,5 +38,8 @@ Template.songForm.events({
                 throwError(error.reason)
 
         });
+
+        $(e.target).find('[name=name]').val('');
+        $(e.target).find('[name=uri]').val('');
     }
 });
