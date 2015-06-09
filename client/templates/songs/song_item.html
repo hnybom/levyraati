@@ -1,18 +1,39 @@
 <template name="songItem">
-      <div class="col-md-12">
-          <div class="thin-border">
-              <div class="songItem" style="padding: 10px">
-                  <h3>{{name}}</h3>
-                  {{#if isSpotify this}}
-                      <iframe src="https://embed.spotify.com/?uri={{uri}}" width="300" height="380"
-                              frameborder="0" allowtransparency="true"></iframe>
-                  {{else}}
-                      <iframe id="ytplayer" type="text/html" width="640" height="390"
-                              src="http://www.youtube.com/embed/{{uri}}?autoplay=0"
-                              frameborder="0">
-                      </iframe>
-                  {{/if}}
-              </div>
-          </div>
-      </div>
+    <div class="row thin-border margin-bottom">
+        <div class="">
+            <div class="col-md-6">
+                <div class="songItem" style="padding: 10px">
+                    <h3>{{name}}</h3>
+                    {{#if isSpotify this}}
+                        <iframe src="https://embed.spotify.com/?uri={{uri}}" width="300" height="380"
+                                frameborder="0" allowtransparency="true"></iframe>
+                    {{else}}
+                        <iframe id="ytplayer" type="text/html" width="500" height="300"
+                                src="http://www.youtube.com/embed/{{uri}}?autoplay=0"
+                                frameborder="0">
+                        </iframe>
+                    {{/if}}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h3>Your rating:</h3>
+                <p>
+                  <span class="starRating">
+                    <input id="{{this._id}}_rating5" type="radio" name="rating" value="5">
+                    <label for="{{this._id}}_rating5">5</label>
+                    <input id="{{this._id}}_rating4" type="radio" name="rating" value="4">
+                    <label for="{{this._id}}_rating4">4</label>
+                    <input id="{{this._id}}_rating3" type="radio" name="rating" value="3" checked>
+                    <label for="{{this._id}}_rating3">3</label>
+                    <input id="{{this._id}}_rating2" type="radio" name="rating" value="2">
+                    <label for="{{this._id}}_rating2">2</label>
+                    <input id="{{this._id}}_rating1" type="radio" name="rating" value="1">
+                    <label for="{{this._id}}_rating1">1</label>
+                  </span>
+                </p>
+                <h3>Ratings:</h3>
+
+            </div>
+        </div>
+    </div>
 </template>
