@@ -25,3 +25,19 @@ Template.competitionForm.events({
         });
     }
 });
+
+Template.competitionForm.helpers({
+    settings: function() {
+        return {
+            position: "top",
+            limit: 5,
+            rules: [
+                {
+                    token: '@',
+                    collection: Meteor.users,
+                    field: "username",
+                    template: Template.userPill
+                }]
+        }
+    }
+})
