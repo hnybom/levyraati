@@ -11,8 +11,23 @@ Template.songForm.helpers({
     },
     errorClass: function (field) {
         return !!Session.get('songFormErrors')[field] ? 'has-error' : '';
+    },
+    getUserName: function(userId) {
+        return Meteor.users.findOne(userId).username;
+    },
+    settings: function() {
+        return {
+            limit: 5,
+            rules: [
+                {
+                    collection: Meteor.users,
+                    field: "username",
+                    template: Template.userPill
+                }]
+        }
     }
 });
+
 
 Template.songForm.events({
     'submit form': function(e, template) {
@@ -41,5 +56,20 @@ Template.songForm.events({
 
         $(e.target).find('[name=name]').val('');
         $(e.target).find('[name=uri]').val('');
+    },
+    "autocompleteselect input": function(event, template, user) {
+
+        var addAttributes = {
+            competitionId: template.data.competition._id,
+            userId: user._id
+        }
+
+        Meteor.call('addUserToCompetition',addAttributes,  function(error, result) {
+            // display the error to the user and abort
+            if (error)
+                throwError(error.reason)
+
+        });
+
     }
 });

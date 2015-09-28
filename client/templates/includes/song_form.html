@@ -1,4 +1,17 @@
 <template name="songForm">
+    <h2>Add users to competition:</h2>
+    <label class="control-label" for="users">Users:</label>
+    <div class="controls">
+        {{> inputAutocomplete settings=settings id="users" class="input-xlarge"}}
+        <span class="help-block"></span>
+    </div>
+    <div class="added-users">
+        <ul>
+            {{#each competition.users}}
+                <li>{{getUserName this}}</li>
+            {{/each}}
+        </ul>
+    </div>
     <h2>Add new song</h2>
     <form class="main form">
         <div class="form-group">
