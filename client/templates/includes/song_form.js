@@ -57,14 +57,30 @@ Template.songForm.events({
         $(e.target).find('[name=name]').val('');
         $(e.target).find('[name=uri]').val('');
     },
-    "autocompleteselect input": function(event, template, user) {
+    'autocompleteselect input': function(event, template, user) {
 
         var addAttributes = {
             competitionId: template.data.competition._id,
             userId: user._id
-        }
+        };
 
-        Meteor.call('addUserToCompetition',addAttributes,  function(error, result) {
+        Meteor.call('addUserToCompetition', addAttributes, function(error, result) {
+            // display the error to the user and abort
+            if (error)
+                throwError(error.reason)
+
+        });
+
+        $(event.target).val("");
+    },
+    'click .remove-user': function(event, template) {
+
+        var removeAttributes = {
+            competitionId: template.data.competition._id,
+            userId: $(event.target).data('userid')
+        };
+
+        Meteor.call('removeUserFromComeptition', removeAttributes, function(error, result) {
             // display the error to the user and abort
             if (error)
                 throwError(error.reason)
