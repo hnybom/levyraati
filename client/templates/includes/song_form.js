@@ -25,6 +25,9 @@ Template.songForm.helpers({
                     template: Template.userPill
                 }]
         }
+    },
+    noSongSubmitted: function() {
+        return true;
     }
 });
 
