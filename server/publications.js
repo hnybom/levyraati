@@ -10,11 +10,16 @@ Meteor.publish('singleCompetition', function(id) {
     return Competitions.find(id);
 });
 
-Meteor.publish('songs', function(competitionId){
+Meteor.publish('competitionSongs', function(competitionId){
     check(competitionId, String);
     return Songs.find({competitionId: competitionId});
+});
+
+Meteor.publish('competitionRatings', function(competitionId){
+    check(competitionId, String);
+    return Ratings.find({competitionId: competitionId});
 })
 
 Meteor.publish('users', function() {
     return Meteor.users.find({}, {fields: {'_id': 1, 'username':1}});
-})
+});

@@ -27,7 +27,7 @@ Template.songForm.helpers({
         }
     },
     noSongSubmitted: function() {
-        return true;
+        return Songs.find({creator: Meteor.userId()}).count() == 0;
     }
 });
 
@@ -43,7 +43,7 @@ Template.songForm.events({
             name: $(e.target).find('[name=name]').val(),
             uri: $(e.target).find('[name=uri]').val(),
             competitionId: template.data.competition._id
-        }
+        };
 
         var errors = validateSong(song);
 
