@@ -1,0 +1,59 @@
+<template name="userPill">
+    <span class="label-pill">{{username}}</span>
+</template>
+
+<template name="competitionActions">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Users in the competition</h2>
+            <div class="added-users">
+                <ul class="user-list">
+                    {{#each competition.users}}
+                        <li class="">
+                            <span class="user-name">{{getUserName this}}</span>
+                            <a class="remove-user" data-userid="{{this}}">X</a>
+                        </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h2>Add users</h2>
+            <div class="controls">
+                <form class="user form">
+                    <div class="controls">
+                        <label class="control-label" for="users">add user:</label>
+                        {{> inputAutocomplete settings=settings id="users" class="input-xlarge form-control"}}
+                        <span class="help-block"></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{#if noSongSubmitted}}
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Add new song</h2>
+        </div>
+        <form class="main form">
+            <div class="form-group">
+                <div class="col-md-6">
+                    <label class="control-label" for="url">Name:</label>
+                    <div class="controls">
+                        <input name="name" id="name" type="text" value="" placeholder="Song name" class="form-control"/>
+                        <span class="help-block">{{errorMessage 'name'}}</span>
+                    </div>
+                    <input type="submit" value="Submit" class="btn btn-primary"/>
+                </div>
+                <div class="col-md-6">
+                    <label class="control-label" for="uri">Spotify URI or Youtube Code:</label>
+                    <div class="controls">
+                        <input name="uri" id="uri" type="text" value="" placeholder="Spotify URI or Youtube code" class="form-control"/>
+                        <span class="help-block">{{errorMessage 'uri'}}</span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    {{/if}}
+</template>

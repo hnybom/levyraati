@@ -1,10 +1,70 @@
 /**
  * Created by hnybom on 31.5.15.
  */
+function escapeHtml(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+};
+
+function editDialog(song) {
+    bootbox.dialog({
+            title: "Edit song info",
+            message: '<div class="row">  ' +
+            '<form class="form"> ' +
+            '<div class="form-group"> ' +
+            '<label class="col-md-2 control-label" for="name">Name</label> ' +
+            '<div class="col-md-10"> ' +
+            '<input id="name" name="name" type="text" placeholder="" class="form-control input-md" value="' + escapeHtml(song.name) + '"> ' +
+            '<span class="help-block">New name for the song</span> </div> ' +
+            '</div> ' +
+            '<div class="form-group"> ' +
+            '<label class="col-md-2 control-label" for="uri">URI</label> ' +
+            '<div class="col-md-10"> ' +
+            '<input id="uri" name="uri" type="text" placeholder="" class="form-control input-md" value="' + escapeHtml(song.uri) + '"> ' +
+            '<span class="help-block">New URI for the song</span> </div> ' +
+            '</div> ' +
+            '</div> </div>' +
+            '</form></div>',
+            buttons: {
+                success: {
+                    label: "Save",
+                    className: "btn-success",
+                    callback: function () {
+                        var name = $('#name').val();
+                        var uri = $('#uri').val();
+                        var songAttributes = {
+                            songId: song._id,
+                            name: name,
+                            uri: uri
+                        }
+
+                        Meteor.call('editSong', songAttributes, function(error, result) {
+                            // display the error to the user and abort
+                            if (error)
+                                throwError(error.reason)
+                        });
+                    }
+                }
+            }
+        }
+    );
+}
+
+Template.songItem.events({
+    'click .edit-song': function(event, template) {
+        var songId = $(event.target).data('songid');
+        editDialog(Songs.findOne({_id: songId}));
+    }
+})
 
 Template.songItem.helpers({
     isSpotify : function(song) {
         if(song.uri.indexOf("spotify") > -1) return true;
         return false;
-    }
+    },
+    isOwner : function(song) {
+      return song.creator == Meteor.userId();
+    },
+    editSongDialog : editDialog
 })

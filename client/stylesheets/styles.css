@@ -106,3 +106,7 @@ a:hover {
     cursor: pointer;
     float: right;
 }
+
+.button-col {
+    margin-top: 10px;
+}

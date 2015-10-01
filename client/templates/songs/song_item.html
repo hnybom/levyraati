@@ -1,5 +1,11 @@
 <template name="songItem">
     <div class="row thin-border margin-bottom">
+        {{#if isOwner this}}
+            <div class="col-md-12 button-col">
+                <a class="edit-song btn btn-primary" data-songid="{{this._id}}">Edit song</a>
+            </div>
+
+        {{/if}}
         <div class="">
             <div class="col-md-6">
                 <div class="songItem" style="padding: 10px">
