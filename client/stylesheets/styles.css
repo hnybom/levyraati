@@ -96,7 +96,6 @@ a:hover {
 }
 
 .user-list li {
-    width: 30%;
     padding: 5px;
     margin: 5px;
     background-color: #2B77BA;
@@ -105,6 +104,7 @@ a:hover {
 
 .user-list li span {
     float: left;
+    margin-right: 20px;
 }
 
 .user-list li a {
