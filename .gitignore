@@ -1,1 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
+### Meteor template
+.idea
+.meteor/local
+.meteor/meteorite
+
+

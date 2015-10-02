@@ -96,13 +96,19 @@ a:hover {
 }
 
 .user-list li {
+    width: 30%;
     padding: 5px;
     margin: 5px;
-    background-color: greenyellow;
+    background-color: #2B77BA;
+    color: #ffffff;
+}
+
+.user-list li span {
+    float: left;
 }
 
 .user-list li a {
-    color: black;
+    color: #ffffff;
     cursor: pointer;
     float: right;
 }
