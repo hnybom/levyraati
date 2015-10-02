@@ -15,6 +15,12 @@ Template.competitionActions.helpers({
     getUserName: function(userId) {
         return Meteor.users.findOne(userId).username;
     },
+    isEven: function(index) {
+        return index % 2 == 0;
+    },
+    isUnEven: function(index) {
+        return index % 2 != 0;
+    },
     settings: function() {
         return {
             limit: 5,

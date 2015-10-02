@@ -8,12 +8,16 @@
             <h2>Users in the competition</h2>
             <div class="added-users">
                 <ul class="user-list">
-                    {{#each competition.users}}
-                        <li class="btn btn-md">
-                            <span class="user-name">{{getUserName this}}</span>
-                            <a class="remove-user" data-userid="{{this}}">X</a>
-                        </li>
-                    {{/each}}
+                    <div class="row">
+                        <div class="col-md-12">
+                            {{#each competition.users}}
+                                <li class="btn btn-md">
+                                    <span class="user-name">{{getUserName this}}</span>
+                                    <a class="remove-user" data-userid="{{this}}">X</a>
+                                </li>
+                            {{/each}}
+                        </div>
+                    </div>
                 </ul>
             </div>
         </div>
