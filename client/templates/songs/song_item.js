@@ -55,6 +55,20 @@ Template.songItem.events({
     'click .edit-song': function(event, template) {
         var songId = $(event.target).data('songid');
         editDialog(Songs.findOne({_id: songId}));
+    },
+    'click .starRating input': function(event, template) {
+
+        var ratingData = {
+            rating: parseInt(event.target.value),
+            songId: this._id,
+            competitionId: this.competitionId
+        }
+
+        Meteor.call('insertOrUpdateRating', ratingData, function(error, result) {
+            // display the error to the user and abort
+            if (error)
+                throwError(error.reason)
+        });
     }
 })
 

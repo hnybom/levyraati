@@ -13,7 +13,9 @@ Template.competitionActions.helpers({
         return !!Session.get('songFormErrors')[field] ? 'has-error' : '';
     },
     getUserName: function(userId) {
-        return Meteor.users.findOne(userId).username;
+        var user = Meteor.users.findOne(userId);
+        if(user) return user.username;
+        return "";
     },
     settings: function() {
         return {
@@ -23,8 +25,12 @@ Template.competitionActions.helpers({
                     collection: Meteor.users,
                     field: "username",
                     template: Template.userPill
-                }]
+                }],
+            filter: function(match) {
+                console.log(match);
+            }
         }
+
     },
     noSongSubmitted: function() {
         return Songs.find({creator: Meteor.userId()}).count() == 0;
