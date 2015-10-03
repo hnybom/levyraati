@@ -25,20 +25,31 @@
                 <h3>Your rating:</h3>
                 <p>
                   <span class="starRating" data-songid="{{this._id}}">
-                    <input id="{{this._id}}_rating5"  type="radio" name="rating" value="5">
+                    <input id="{{this._id}}_rating5"  type="radio" name="rating" value="5" {{ratingChecked 5}}>
                     <label for="{{this._id}}_rating5">5</label>
-                    <input id="{{this._id}}_rating4" type="radio" name="rating" value="4">
+                    <input id="{{this._id}}_rating4" type="radio" name="rating" value="4" {{ratingChecked 4}}>
                     <label for="{{this._id}}_rating4">4</label>
-                    <input id="{{this._id}}_rating3" type="radio" name="rating" value="3" checked>
+                    <input id="{{this._id}}_rating3" type="radio" name="rating" value="3" {{ratingChecked 3}}>
                     <label for="{{this._id}}_rating3">3</label>
-                    <input id="{{this._id}}_rating2" type="radio" name="rating" value="2">
+                    <input id="{{this._id}}_rating2" type="radio" name="rating" value="2" {{ratingChecked 2}}>
                     <label for="{{this._id}}_rating2">2</label>
-                    <input id="{{this._id}}_rating1" type="radio" name="rating" value="1">
+                    <input id="{{this._id}}_rating1" type="radio" name="rating" value="1" {{ratingChecked 1}}>
                     <label for="{{this._id}}_rating1">1</label>
                   </span>
                 </p>
                 <h3>Ratings:</h3>
-
+                {{#each getRatingsForThisSong this}}
+                    <div class="row rating-row">
+                        <div class="col-md-6">
+                            {{#each loopCount this.rating}}
+                                <img src="../images/star-on.svg"/>
+                            {{/each}}
+                        </div>
+                        <div class="col-md-6">
+                            <span class="btn">{{getUserName this.userId}}</span>
+                        </div>
+                    </div>
+                {{/each}}
             </div>
         </div>
     </div>

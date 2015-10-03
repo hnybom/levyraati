@@ -57,6 +57,11 @@ a:hover {
     opacity : 1;
 }
 
+.rating-row {
+    border-bottom: thin solid #000;
+    margin-right: 10px;
+}
+
 .navbar-right {
     margin-top: 15px;
     margin-right: 150px;

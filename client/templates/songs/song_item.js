@@ -80,5 +80,24 @@ Template.songItem.helpers({
     isOwner : function(song) {
       return song.creator == Meteor.userId();
     },
+    getRatingsForThisSong : function(song) {
+      return Ratings.find({songId:song._id});
+    },
+    ratingChecked : function(value) {
+        var myRating = Ratings.findOne({songId:this._id, userId:Meteor.userId()});
+        return myRating.rating == value ? "checked":"";
+    },
+    loopCount: function(count){
+        var countArr = [];
+        for (var i=0; i<count; i++){
+            countArr.push({});
+        }
+        return countArr;
+    },
+    getUserName: function(userId) {
+        var user = Meteor.users.findOne(userId);
+        if(user) return user.username;
+        return "";
+    },
     editSongDialog : editDialog
 })
