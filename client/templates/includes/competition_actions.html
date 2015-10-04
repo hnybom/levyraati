@@ -21,7 +21,9 @@
                 </ul>
             </div>
         </div>
+
         <div class="col-md-6">
+            {{#if isCreator}}
             <h2>Add users</h2>
             <div class="controls">
                 <form class="user form">
@@ -32,6 +34,8 @@
                     </div>
                 </form>
             </div>
+            <button id="end-competition" class="btn btn-danger">End competition</button>
+            {{/if}}
         </div>
     </div>
     {{#if noSongSubmitted}}

@@ -25,15 +25,18 @@ Template.competitionActions.helpers({
                     collection: Meteor.users,
                     field: "username",
                     template: Template.userPill
-                }],
-            filter: function(match) {
-                console.log(match);
-            }
+                }]
         }
 
     },
     noSongSubmitted: function() {
         return Songs.find({creator: Meteor.userId()}).count() == 0;
+    },
+    isCreator: function() {
+        if(this.competition) {
+            return this.competition.creator == Meteor.userId();
+        }
+        return false;
     }
 });
 
@@ -96,5 +99,17 @@ Template.competitionActions.events({
 
         });
 
+    },
+    'click #end-competition': function(event, template) {
+        var endAttributes = {
+            competitionId: template.data.competition._id
+        };
+
+        Meteor.call('endComeptition', endAttributes, function(error, result) {
+            // display the error to the user and abort
+            if (error)
+                throwError(error.reason)
+
+        });
     }
 });
