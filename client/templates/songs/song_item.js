@@ -99,5 +99,16 @@ Template.songItem.helpers({
         if(user) return user.username;
         return "";
     },
+    averageRating: function(song) {
+        var songRatings = Ratings.find({songId:this._id}).fetch();
+        var totalRating = 0;
+        for ( key in songRatings ) {
+            var rating = songRatings[key];
+            totalRating = totalRating + rating.rating;
+        }
+
+        return totalRating / songRatings.length;
+    }
+    ,
     editSongDialog : editDialog
 })
