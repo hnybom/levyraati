@@ -1,17 +1,4 @@
-body{
-    margin      : 0;
-    padding     : 1.5em;
-    font-family : sans-serif;
-    line-height : 1.5;
-}
-
-p{
-    margin  : 0 0 1.5em;
-    padding : 0;
-}
-
 a{
-    color           : #9c3;
     text-decoration : none;
 }
 a:hover {
@@ -57,9 +44,27 @@ a:hover {
     opacity : 1;
 }
 
+.errors .alert {
+    padding-top: 60px;
+}
+
+.jumbotron hr {
+    border-top: 1px solid #000;
+}
+
 .rating-row {
     border-bottom: thin solid #000;
     margin-right: 10px;
+}
+.breadcrumb {
+    margin: 0;
+    padding-top: 60px;
+    background-color: #EEEEEE;
+    border-bottom: thin solid #CCCCD2;
+    border-radius: 0px;
+}
+.breadcrumb a {
+    color: #000000;
 }
 
 .navbar-right {
@@ -81,9 +86,22 @@ a:hover {
 }
 
 .competitionItem {
-    padding: 2px 5px 5px 5px;
+    background-color: #EEEEEE;
+    margin: 2px 5px 5px 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
-.competitionItem h3{
+.competitionItem i {
+    font-size: 30px;
+}
+
+.competitionItem .owner {
+
+}
+
+.competitionItem a {
+    color: #000000;
+    font-size: 20px;
     text-align: center;
     text-transform: uppercase;
 }

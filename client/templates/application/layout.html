@@ -2,6 +2,7 @@
     <body>
         {{> header}}
         {{> errors}}
+        {{> breadcrumb}}
         <div class="jumbotron">
             <div class="container">
                 {{> yield "jumbotron"}}
@@ -10,10 +11,13 @@
 
         <div class="container">
             {{>yield}}
-            <hr>
-            <footer>
-                <p>© Solita 2015</p>
-            </footer>
         </div>
+        <hr>
+        <footer>
+            <div class="container">
+                <p>Implementation by <strong>Henri Nybom 2015</strong></p>
+                <p>Fork me at <a href="https://github.com/hnybom/levyraati">https://github.com/hnybom/levyraati</a></p>
+            </div>
+        </footer>
     </body>
 </template>

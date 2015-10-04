@@ -1,10 +1,12 @@
 <template name="competitionItem">
-    <div class="col-md-3">
-      <div class="thin-border">
-          <div class="competitionItem {{competitionOwnerStyle _id}}">
-                <h3>{{name}}</h3>
-                <a href="{{pathFor 'competitionPage'}}">See more</a>
-          </div>
-      </div>
+    <div class="col-md-3 competitionItem">
+        <div class="row {{competitionOwnerStyle _id}}">
+            <div class="col-md-2">
+                <i class="fa fa-music"></i>
+            </div>
+            <div class="col-md-10">
+                <a href="{{pathFor 'competitionPage'}}">{{name}}</a>
+            </div>
+        </div>
     </div>
 </template>

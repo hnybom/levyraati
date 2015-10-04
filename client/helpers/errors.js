@@ -10,7 +10,7 @@ throwError = function(message) {
 
 Template.error.rendered = function() {
     var error = this.data;
-    Meteor.setTimeout(function() {
+    /*Meteor.setTimeout(function() {
         Errors.remove(error._id);
-    }, 3000);
+    }, 3000);*/
 }
