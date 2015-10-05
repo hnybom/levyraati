@@ -1,7 +1,14 @@
 <template name="competitionsList">
     <div class="row">
-        <div class="competitions">
-          {{#each competitions}}
+        <div class="competitions col-md-6">
+            <h3>Open competitions</h3>
+            {{#each openCompetitions}}
+                {{> competitionItem}}
+            {{/each}}
+        </div>
+        <div class="competitions col-md-6">
+            <h3>Closed competitions</h3>
+          {{#each closedCompetitions}}
             {{> competitionItem}}
           {{/each}}
         </div>

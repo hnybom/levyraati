@@ -32,11 +32,23 @@ Template.competitionActions.helpers({
     noSongSubmitted: function() {
         return Songs.find({creator: Meteor.userId()}).count() == 0;
     },
-    isCreator: function() {
-        if(this.competition) {
-            return this.competition.creator == Meteor.userId();
+    isCreator: function(parentContext) {
+
+        var competition = this.competition;
+
+        if(!this.competition && parentContext) {
+            competition = parentContext.competition;
+        }
+
+        if(competition) {
+            return competition.creator == Meteor.userId();
         }
         return false;
+    },
+    isClosed: function() {
+        if(this.competition) {
+            return this.competition.ended;
+        }
     }
 });
 

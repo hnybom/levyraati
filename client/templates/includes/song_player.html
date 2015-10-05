@@ -1,0 +1,16 @@
+<template name="songPlayer">
+    {{#if this.uri}}
+    <div class="songItem" style="padding: 10px">
+        <h3>{{name}}</h3>
+        {{#if isSpotify this}}
+            <iframe src="https://embed.spotify.com/?uri={{uri}}" width="300" height="380"
+                    frameborder="0" allowtransparency="true"></iframe>
+        {{else}}
+            <iframe id="ytplayer" type="text/html" width="500" height="300"
+                    src="http://www.youtube.com/embed/{{uri}}?autoplay=0"
+                    frameborder="0">
+            </iframe>
+        {{/if}}
+    </div>
+    {{/if}}
+</template>

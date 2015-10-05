@@ -1,14 +1,22 @@
 <template name="competitionForm">
-    <h2>Add new competition</h2>
-    <form class="main form">
-        <div class="form-group">
-            <label class="control-label" for="name">Name:</label>
-            <div class="controls">
-                <input name="name" id="name" type="text" value="" placeholder="Comeptition name" class="form-control"/>
-                <span class="help-block"></span>
-            </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Levyraati</h1>
+            <p>Levyraati is a song voting app where YOU can create your own competitions and invite your friends to
+            join. Together you decide the best song by voting.</p>
         </div>
-        <input type="submit" value="Submit" class="btn btn-primary"/>
-    </form>
+        <div class="col-md-6">
+            <h2>Add new competition</h2>
+            <form class="main form">
+                <div class="form-group">
+                    <label class="control-label" for="name">Name:</label>
+                    <div class="controls">
+                        <input name="name" id="name" type="text" value="" placeholder="Comeptition name" class="form-control"/>
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+                <input type="submit" value="Submit" class="btn btn-primary"/>
+            </form>
+        </div>
+    </div>
 </template>
-

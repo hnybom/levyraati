@@ -72,11 +72,18 @@ Template.songItem.events({
     }
 })
 
+function calculateRating(songRatings) {
+    var totalRating = 0;
+    for (key in songRatings) {
+        var rating = songRatings[key];
+        totalRating = totalRating + rating.rating;
+    }
+
+    return totalRating / songRatings.length;
+}
+
+
 Template.songItem.helpers({
-    isSpotify : function(song) {
-        if(song.uri.indexOf("spotify") > -1) return true;
-        return false;
-    },
     isOwner : function(song) {
       return song.creator == Meteor.userId();
     },
@@ -101,13 +108,7 @@ Template.songItem.helpers({
     },
     averageRating: function(song) {
         var songRatings = Ratings.find({songId:this._id}).fetch();
-        var totalRating = 0;
-        for ( key in songRatings ) {
-            var rating = songRatings[key];
-            totalRating = totalRating + rating.rating;
-        }
-
-        return totalRating / songRatings.length;
+        return calculateRating(songRatings);
     }
     ,
     editSongDialog : editDialog
