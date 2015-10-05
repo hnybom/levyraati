@@ -82,7 +82,6 @@ function calculateRating(songRatings) {
     return totalRating / songRatings.length;
 }
 
-
 Template.songItem.helpers({
     isOwner : function(song) {
       return song.creator == Meteor.userId();

@@ -1,6 +1,16 @@
 /**
  * Created by hnybom on 5.10.2015.
  */
+function calculateRating(songRatings) {
+    var totalRating = 0;
+    for (key in songRatings) {
+        var rating = songRatings[key];
+        totalRating = totalRating + rating.rating;
+    }
+
+    return totalRating / songRatings.length;
+}
+
 Template.competitionEnd.helpers({
     winner: function() {
         var songs = Songs.find().fetch();
