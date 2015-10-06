@@ -74,6 +74,7 @@ Template.songItem.events({
 
 function calculateRating(songRatings) {
     var totalRating = 0;
+    if(songRatings.length == 0) return totalRating;
     for (key in songRatings) {
         var rating = songRatings[key];
         totalRating = totalRating + rating.rating;
@@ -91,7 +92,8 @@ Template.songItem.helpers({
     },
     ratingChecked : function(value) {
         var myRating = Ratings.findOne({songId:this._id, userId:Meteor.userId()});
-        return myRating.rating == value ? "checked":"";
+        if(myRating) return myRating.rating == value ? "checked":"";
+        return "";
     },
     loopCount: function(count){
         var countArr = [];
