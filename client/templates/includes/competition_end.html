@@ -2,11 +2,16 @@
     <div class="row">
         {{#with winner}}
             <div class="col-md-6">
-                <h2>And the winner is...</h2>
-                <h3>{{getUserName this}}</h3>
+                <h3>And the winner is...</h3>
+                <h2>{{getUserName this}}</h2>
+                <p>Congratulations to the winner! He/She truly knows what's hot right now.
+                    You can listen to the winner once again and jam the night away.</p>
+                <a id="seeTheResults" class="btn btn-success">See all of the results.</a>
             </div>
             <div class="col-md-6">
-                {{>songPlayer this}}
+                <div class="jumbotron-player">
+                    {{>songPlayer this}}
+                </div>
             </div>
         {{/with}}
     </div>

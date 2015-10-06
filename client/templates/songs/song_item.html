@@ -1,10 +1,9 @@
 <template name="songItem">
-    <div class="row thin-border margin-bottom">
-        {{#if isOwner this}}
+    <div class="row song-entry thin-border margin-bottom">
+        {{#if isOkToEdit}}
             <div class="col-md-12 button-col">
                 <a class="edit-song btn btn-primary" data-songid="{{this._id}}">Edit song</a>
             </div>
-
         {{/if}}
         <div class="">
             <div class="col-md-6">
@@ -27,19 +26,29 @@
                   </span>
                 </p>
                 <h3>Ratings:</h3>
-                {{#each getRatingsForThisSong this}}
-                    <div class="row rating-row">
-                        <div class="col-md-6">
-                            {{#each loopCount this.rating}}
-                                <img src="../images/star-on.svg"/>
-                            {{/each}}
-                        </div>
-                        <div class="col-md-6">
-                            <span>{{getUserName this.userId}}</span>
-                        </div>
-                    </div>
-                {{/each}}
-                <span class="average-row">average raiting: {{averageRating this}}</span>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {{#each getRatingsForThisSong this}}
+                        <tr>
+                            <td>{{inc @index}}</td>
+                            <td>{{getUserName this.userId}}</td>
+                            <td>
+                                {{#each loopCount this.rating}}
+                                    <img src="../images/star-on.svg"/>
+                                {{/each}}
+                            </td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+                <span class="average-row"><strong>Average raiting: {{averageRating this}}</strong></span>
             </div>
         </div>
     </div>

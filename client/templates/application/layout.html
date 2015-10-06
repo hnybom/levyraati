@@ -1,17 +1,15 @@
 <template name="levyraatiMainLayout">
     <body>
         {{> header}}
-        {{> errors}}
         <div class="jumbotron">
             <div class="container">
                 {{> yield "jumbotron"}}
             </div>
         </div>
-
+        {{> errors}}
         <div class="container">
             {{>yield}}
         </div>
-        <hr>
         <footer>
             <div class="container">
                 <p>Implementation by <strong>Henri Nybom 2015</strong></p>

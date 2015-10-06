@@ -82,10 +82,14 @@ function calculateRating(songRatings) {
 
     return totalRating / songRatings.length;
 }
+function isOwner(song) {
+    return song.creator == Meteor.userId();
+}
 
 Template.songItem.helpers({
-    isOwner : function(song) {
-      return song.creator == Meteor.userId();
+    isOwner : isOwner,
+    inc : function(val) {
+        return val + 1;
     },
     getRatingsForThisSong : function(song) {
       return Ratings.find({songId:song._id});
@@ -94,6 +98,13 @@ Template.songItem.helpers({
         var myRating = Ratings.findOne({songId:this._id, userId:Meteor.userId()});
         if(myRating) return myRating.rating == value ? "checked":"";
         return "";
+    },
+    isOkToEdit: function() {
+        if(!isOwner(this)) return false;
+
+        var competition = Competitions.findOne(this.competitionId);
+        if(competition) return !competition.ended;
+        return false;
     },
     loopCount: function(count){
         var countArr = [];
