@@ -10,7 +10,7 @@ $(window).scroll(function() {
 });
 
 Template.registerHelper('formatDate', function(date) {
-    return moment(date).format('DD-MM-YYYY');
+    return moment(date).format('hh:mm:ss / DD-MM-YYYY');
 });
 Template.registerHelper('getUserName', function(userId) {
     var user = Meteor.users.findOne(userId);

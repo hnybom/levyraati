@@ -9,6 +9,8 @@ Template.chat.events({
     },
     'click #chat-send-button': function(event, template) {
         var message = $('#chat-btn-input').val();
+        if(!message || message == "") return;
+
         var chat = {
             message: message,
             competitionId: template.data.competitionId
@@ -22,6 +24,10 @@ Template.chat.events({
         });
 
         $('#chat-btn-input').val('');
+        $("#chat-panel-body").each( function() {
+            var scrollHeight = Math.max(this.scrollHeight, this.clientHeight);
+            this.scrollTop = scrollHeight - this.clientHeight;
+        });
     }
 });
 
