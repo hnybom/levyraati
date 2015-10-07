@@ -113,11 +113,6 @@ Template.songItem.helpers({
         }
         return countArr;
     },
-    getUserName: function(userId) {
-        var user = Meteor.users.findOne(userId);
-        if(user) return user.username;
-        return "";
-    },
     averageRating: function(song) {
         var songRatings = Ratings.find({songId:this._id}).fetch();
         return calculateRating(songRatings);

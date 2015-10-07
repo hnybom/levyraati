@@ -10,7 +10,7 @@ Template.competitionForm.events({
 
         var competition = {
             name: $(e.target).find('[name=name]').val()
-        }
+        };
 
         var errors = validateCompetition(competition);
 

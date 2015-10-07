@@ -4,4 +4,8 @@
         {{> songItem }}
       {{/each}}
     </div>
+    <div id="chat-button" class="chat-button btn btn-primary">Open competition chat</div>
+    <div id="chat-box" class="chat-container" style="display: none">
+        {{>chat chats=chats competitionId=competition._id}}
+    </div>
 </template>

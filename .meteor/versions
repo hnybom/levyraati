@@ -63,6 +63,7 @@ mizzao:autocomplete@0.5.1
 mizzao:bootboxjs@4.4.0
 mobile-experience@1.0.1
 mobile-status-bar@1.0.6
+momentjs:moment@2.10.6
 monbro:iron-router-breadcrumb@1.0.10
 mongo@1.1.2
 mongo-id@1.0.1

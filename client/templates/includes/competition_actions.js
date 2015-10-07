@@ -12,11 +12,6 @@ Template.competitionActions.helpers({
     errorClass: function (field) {
         return !!Session.get('songFormErrors')[field] ? 'has-error' : '';
     },
-    getUserName: function(userId) {
-        var user = Meteor.users.findOne(userId);
-        if(user) return user.username;
-        return "";
-    },
     settings: function() {
         return {
             limit: 5,

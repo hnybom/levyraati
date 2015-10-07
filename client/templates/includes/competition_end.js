@@ -37,9 +37,5 @@ Template.competitionEnd.helpers({
 
         return songs[winner.index];
 
-    }, getUserName: function(song) {
-        var user = Meteor.users.findOne(song.creator);
-        if(user) return user.username;
-        return "No one?? but whyy :(";
-    },
+    }
 });

@@ -18,7 +18,12 @@ Meteor.publish('competitionSongs', function(competitionId){
 Meteor.publish('competitionRatings', function(competitionId){
     check(competitionId, String);
     return Ratings.find({competitionId: competitionId});
-})
+});
+
+Meteor.publish('competitionChat', function(competitionId){
+    check(competitionId, String);
+    return Chats.find({competitionId: competitionId});
+});
 
 Meteor.publish('users', function() {
     return Meteor.users.find({}, {fields: {'_id': 1, 'username':1}});

@@ -8,3 +8,12 @@ $(window).scroll(function() {
         $(".navbar-fixed-top").removeClass("top-nav-collapse");
     }
 });
+
+Template.registerHelper('formatDate', function(date) {
+    return moment(date).format('DD-MM-YYYY');
+});
+Template.registerHelper('getUserName', function(userId) {
+    var user = Meteor.users.findOne(userId);
+    if (user) return user.username;
+    return "";
+});
