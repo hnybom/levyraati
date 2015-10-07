@@ -1,12 +1,12 @@
 <template name="levyraatiMainLayout">
     <body>
+        {{> sAlert}}
         {{> header}}
         <div class="jumbotron">
             <div class="container">
                 {{> yield "jumbotron"}}
             </div>
         </div>
-        {{> errors}}
         <div class="container">
             {{>yield}}
         </div>
