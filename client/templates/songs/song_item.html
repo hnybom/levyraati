@@ -1,5 +1,5 @@
 <template name="songItem">
-    <div class="row song-entry thin-border margin-bottom">
+    <div class="row song-entry thin-border margin-bottom {{getSongBackground}}">
         {{#if isOkToEdit}}
             <div class="col-md-12 button-col">
                 <a class="edit-song btn btn-primary" data-songid="{{this._id}}">Edit song</a>
@@ -26,7 +26,7 @@
                   </span>
                 </p>
                 <h3>Ratings:</h3>
-                <table class="table table-hover">
+                <table class="table">
                     <thead>
                         <tr>
                             <th>#</th>
