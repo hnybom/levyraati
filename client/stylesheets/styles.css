@@ -1,9 +1,14 @@
 a{
     text-decoration : none;
 }
+
 a:hover {
     text-decoration : none;
     font-weight     : bold;
+}
+
+.spaceme {
+    margin-top: 20px;
 }
 
 .navbar-brand {
@@ -106,6 +111,18 @@ a:hover {
     font-size: 14px;
     font-weight: bold;
     text-decoration: none;
+}
+
+.loading-gif {
+    background:
+    #777777
+    url(../images/ajax-loader.gif)
+    no-repeat
+    left center;
+}
+
+.-autocomplete-container {
+    color: #000;
 }
 
 .user-list {

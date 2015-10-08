@@ -120,12 +120,22 @@ Template.competitionActions.events({
         });
     },
     'change #uri': function(event, template) {
-        Meteor.call('fetchTrackData', {spotifyUri: $('#uri').val()},
-            function(error, result) {
-                if(!error) {
-                    $('#name').val(result.artists[0].name + " - " + result.name);
-                }
+        var $name = $('#name');
+        var uri = $('#uri').val();
+        if(UI._globalHelpers.isSpotify(uri)) {
+            $name.addClass('loading-gif');
+            $name.prop('disabled', true);
+            Meteor.call('fetchTrackData', {spotifyUri: uri},
+                function(error, result) {
+                    $('#name').removeClass('loading-gif');
+                    $name.prop('disabled', false);
+                    if(!error && result.name) {
+                        $('#name').val(result.artists[0].name + " - " + result.name);
+                    }
+                });
+        } else {
+            $name.val('');
 
-            });
+        }
     }
 });
