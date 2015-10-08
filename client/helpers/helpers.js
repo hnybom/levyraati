@@ -17,3 +17,10 @@ Template.registerHelper('getUserName', function(userId) {
     if (user) return user.username;
     return "";
 });
+
+Template.registerHelper('isSpotify', function isSpotifySong(song) {
+    if(song) {
+        if(song.uri.indexOf("spotify") > -1) return true;
+        return false;
+    }
+});

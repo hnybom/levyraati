@@ -118,5 +118,14 @@ Template.competitionActions.events({
                 throwError(error.reason)
 
         });
+    },
+    'change #uri': function(event, template) {
+        Meteor.call('fetchTrackData', {spotifyUri: $('#uri').val()},
+            function(error, result) {
+                if(!error) {
+                    $('#name').val(result.artists[0].name + " - " + result.name);
+                }
+
+            });
     }
 });

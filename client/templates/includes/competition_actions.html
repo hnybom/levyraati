@@ -57,13 +57,6 @@
 
                     <form class="main form">
                         <div class="form-group">
-                            <label class="control-label" for="url">Name:</label>
-
-                            <div class="controls">
-                                <input name="name" id="name" type="text" value="" placeholder="Song name"
-                                       class="form-control"/>
-                                <span class="help-block">{{errorMessage 'name'}}</span>
-                            </div>
 
                             <label class="control-label" for="uri">Spotify URI or Youtube Code:</label>
 
@@ -72,6 +65,14 @@
                                        placeholder="Spotify URI or Youtube code" class="form-control"/>
                                 <span class="help-block">{{errorMessage 'uri'}}</span>
                             </div>
+
+                            <label class="control-label" for="url">Name:</label>
+                            <div class="controls">
+                                <input name="name" id="name" type="text" value="" placeholder="Song name"
+                                       class="form-control"/>
+                                <span class="help-block">{{errorMessage 'name'}}</span>
+                            </div>
+
                             <input type="submit" value="Submit" class="btn btn-primary"/>
                         </div>
                     </form>
