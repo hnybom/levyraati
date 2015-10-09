@@ -11,6 +11,10 @@ a:hover {
     margin-top: 20px;
 }
 
+.error {
+    color: #D9534F;
+}
+
 .navbar-brand {
     color: #ffffff;
     font-size: 50px !important;
@@ -179,7 +183,7 @@ a:hover {
 }
 
 footer {
-    padding: 25px 0;
+    padding: 10px 0;
     color: #EEEEEE;
     background-color: #000000;
     position: fixed;

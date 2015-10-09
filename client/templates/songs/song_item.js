@@ -38,12 +38,17 @@ function editDialog(song) {
                             name: name,
                             uri: uri
                         }
+                        var errors = validateSong(songAttributes);
 
+                        if (errors.name || errors.uri) {
+                            sAlert.error('Sorry song info not valid!');
+                        } else {
                         Meteor.call('editSong', songAttributes, function(error, result) {
                             // display the error to the user and abort
                             if (error)
                                 throwError(error.reason)
                         });
+                        }
                     }
                 }
             }
