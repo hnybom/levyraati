@@ -48,6 +48,10 @@ a:hover {
     margin-left: 60px;
 }
 
+.main-content {
+    margin-bottom: 200px;
+}
+
 .rating-row {
     border-bottom: thin solid #B3A9A9;
     margin-right: 10px;
@@ -175,7 +179,10 @@ a:hover {
 }
 
 footer {
-    padding: 60px 0;
+    padding: 25px 0;
     color: #EEEEEE;
     background-color: #000000;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }

@@ -62,11 +62,13 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
+    z-index: 10;
 }
 
 .chat-container {
     position: fixed;
     bottom: 0px;
     right: 20px;
-    width: 300px
+    width: 300px;
+    z-index: 10;
 }
