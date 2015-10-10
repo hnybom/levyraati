@@ -103,6 +103,10 @@ a:hover {
     text-transform: uppercase;
 }
 
+.open-competitions .owner .text-primary {
+    color: #5CB85C;
+}
+
 .open-competitions .text-primary {
     color: #FED136;
 }
