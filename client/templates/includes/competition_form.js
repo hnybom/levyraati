@@ -26,8 +26,12 @@ Template.competitionForm.events({
 
         Meteor.call('insertCompetition', competition, function(error, result) {
             // display the error to the user and abort
-            if (error)
+            if (error) {
                 throwError(error.reason)
+            } else {
+                $(e.target).find('[name=name]').val('');
+                $(e.target).find('#description').val('');
+            }
 
         });
     }
