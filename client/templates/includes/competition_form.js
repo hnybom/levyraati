@@ -1,6 +1,12 @@
 /**
  * Created by hnybom on 8.4.15.
  */
+Template.competitionForm.helpers({
+    errorMessage: function(field) {
+        return Session.get('competitionFormErrors')[field];
+    }
+});
+
 Template.competitionForm.events({
     'submit form': function(e) {
         e.preventDefault();
@@ -9,7 +15,8 @@ Template.competitionForm.events({
         if(!user) return;
 
         var competition = {
-            name: $(e.target).find('[name=name]').val()
+            name: $(e.target).find('[name=name]').val(),
+            description: $(e.target).find('#description').val()
         };
 
         var errors = validateCompetition(competition);

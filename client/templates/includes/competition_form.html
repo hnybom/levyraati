@@ -12,7 +12,13 @@
                     <label class="control-label" for="name">Name:</label>
                     <div class="controls">
                         <input name="name" id="name" type="text" value="" placeholder="Comeptition name" class="form-control"/>
-                        <span class="help-block"></span>
+                        <span class="help-block error">{{errorMessage 'name'}}</span>
+                    </div>
+                    <label class="control-label" for="name">Description:</label>
+                    <div class="controls">
+                        <textarea name="description" id="description" rows="5"
+                               placeholder="Comeptition description" class="form-control"></textarea>
+                        <span class="help-block error">{{errorMessage 'description'}}</span>
                     </div>
                 </div>
                 <input type="submit" value="Submit" class="btn btn-primary"/>
