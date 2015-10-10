@@ -21,8 +21,11 @@ Template.competitionForm.events({
 
         var errors = validateCompetition(competition);
 
-        if (errors.name)
+        if (errors.name || errors.description) {
             return Session.set('competitionFormErrors', errors);
+        } else {
+            Session.set('competitionFormErrors', {});
+        }
 
         Meteor.call('insertCompetition', competition, function(error, result) {
             // display the error to the user and abort

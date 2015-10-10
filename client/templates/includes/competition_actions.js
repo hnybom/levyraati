@@ -9,14 +9,18 @@ Template.competitionActions.helpers({
     errorMessage: function(field) {
         return Session.get('songFormErrors')[field];
     },
-    errorClass: function (field) {
-        return !!Session.get('songFormErrors')[field] ? 'has-error' : '';
-    },
     settings: function() {
         return {
             limit: 5,
             rules: [
                 {
+                    token: '!',
+                    collection: this.ownCompetitions.collection,
+                    field: "name",
+                    template: Template.competitionPill
+                },
+                {
+                    token: '@',
                     collection: Meteor.users,
                     field: "username",
                     template: Template.userPill
@@ -76,20 +80,34 @@ Template.competitionActions.events({
         $(e.target).find('[name=name]').val('');
         $(e.target).find('[name=uri]').val('');
     },
-    'autocompleteselect input': function(event, template, user) {
+    'autocompleteselect input': function(event, template, data) {
+        // competition selected
+        if(data.users) {
+            var addAttributes = {
+                competitionId: template.data.competition._id,
+                users: data.users
+            };
 
-        var addAttributes = {
-            competitionId: template.data.competition._id,
-            userId: user._id
-        };
+            Meteor.call('addUsersToCompetition', addAttributes, function(error, result) {
+                // display the error to the user and abort
+                if (error)
+                    throwError(error.reason)
 
-        Meteor.call('addUserToCompetition', addAttributes, function(error, result) {
-            // display the error to the user and abort
-            if (error)
-                throwError(error.reason)
+            });
+        } else {
 
-        });
+            var addAttributes = {
+                competitionId: template.data.competition._id,
+                userId: data._id
+            };
 
+            Meteor.call('addUserToCompetition', addAttributes, function(error, result) {
+                // display the error to the user and abort
+                if (error)
+                    throwError(error.reason)
+
+            });
+        }
         $(event.target).val("");
     },
     'click .remove-user': function(event, template) {
