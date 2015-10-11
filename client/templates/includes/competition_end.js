@@ -15,7 +15,7 @@ function calculateResults(songs) {
     var results = songs.map(function (elem, index) {
         var rating = calculateRating(Ratings.find({songId: elem._id}).fetch());
         return {
-            index: index,
+            song: elem,
             rating: rating
         };
     });
@@ -36,7 +36,7 @@ function resultDialog(results, songs) {
     var table = '';
     for(var key in results) {
         var result = results[key];
-        var song = songs[result.index];
+        var song = result.song;
         var ind = parseInt(key) + 1;
         table = table.concat('<tr><td>' + ind  + '</td><td>'
             + UI._globalHelpers.getUserName(song.creator) + '</td><td>'
@@ -84,7 +84,7 @@ Template.competitionEnd.helpers({
             return result;
         });
 
-        return songs[winner.index];
+        return winner.song;
 
     }
 });
