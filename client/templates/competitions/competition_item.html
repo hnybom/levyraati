@@ -1,9 +1,11 @@
 <template name="competitionItem">
-    <div class="col-md-4 {{competitionOwnerStyle _id}}">
-        <span class="fa-stack fa-4x">
-            <i class="fa fa-circle fa-stack-2x text-primary"></i>
-            <i class="fa fa-microphone fa-stack-1x fa-inverse"></i>
-        </span>
+    <div class="col-md-4 margin-bottom text-justify {{competitionOwnerStyle _id}}">
+        <div class="text-center">
+            <span class="fa-stack fa-4x">
+                <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                <i class="fa fa-microphone fa-stack-1x fa-inverse"></i>
+            </span>
+        </div>
         <h4 class="service-heading">{{name}}</h4>
         <p class="text-muted">{{description}}</p>
         <span class="text-left">
