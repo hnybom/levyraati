@@ -1,6 +1,6 @@
 <template name="songPlayer">
     {{#if this.uri}}
-    <div class="songItem" style="padding: 10px">
+    <div class="songItem">
         <h3>{{name}}</h3>
         {{#if isSpotify this.uri}}
             <iframe src="https://embed.spotify.com/?uri={{uri}}" width="300" height="380"

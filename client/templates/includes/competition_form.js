@@ -3,7 +3,9 @@
  */
 Template.competitionForm.helpers({
     errorMessage: function(field) {
-        return Session.get('competitionFormErrors')[field];
+        var competitionFormErrors = Session.get('competitionFormErrors');
+        if(competitionFormErrors) return competitionFormErrors[field];
+        return '';
     }
 });
 
@@ -24,7 +26,7 @@ Template.competitionForm.events({
         if (errors.name || errors.description) {
             return Session.set('competitionFormErrors', errors);
         } else {
-            Session.set('competitionFormErrors', {});
+            Session.set('competitionFormErrors', {name:'', description:''});
         }
 
         Meteor.call('insertCompetition', competition, function(error, result) {

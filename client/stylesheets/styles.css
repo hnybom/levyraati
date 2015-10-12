@@ -120,10 +120,19 @@ a:hover {
 }
 
 
-#login-buttons a{
+.accounts-dialog a {
+    color: #555555;
+    font-size: 12px !important;
+    text-decoration: none !important;
+}
+
+.login-link-text {
     color: #EEEEEE;
-    font-size: 12px;
-    text-decoration: none;
+    text-decoration: none !important;
+}
+
+.login-link-text:hover {
+    color: #EEEEEE;
 }
 
 .loading-gif {
@@ -161,12 +170,20 @@ a:hover {
     float: right;
 }
 
+.bootbox-body .help-block {
+    color: #555555;
+}
+
 .button-col {
     margin-top: 10px;
 }
 
 .rating-form {
     margin-top: 10px;
+}
+
+.songItem {
+    xpadding: 10px;
 }
 
 .song-entry {
