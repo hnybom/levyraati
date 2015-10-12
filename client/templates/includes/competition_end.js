@@ -8,7 +8,7 @@ function calculateRating(songRatings) {
         totalRating = totalRating + rating.rating;
     }
 
-    return totalRating / songRatings.length;
+    return (totalRating / songRatings.length).toFixed(2);;
 }
 
 function calculateResults(songs) {
