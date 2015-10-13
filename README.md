@@ -74,7 +74,7 @@ IP: 172.17.0.20:27017
 db.createUser(
     {
       user: "levyraati",
-      pwd: "s4l4s4n4",
+      pwd: "pass",
       roles: [
          { role: "readWrite", db: "levyraati" },
          { role: "read", db: "local" }
@@ -87,11 +87,11 @@ Mongo 2.4 -->
 db.addUser(
     {
       user: "levyraati",
-      pwd: "s4l4s4n4",
+      pwd: "pass",
       roles: ["readWrite"]
     }
 )
 
 
-docker run -d -e ROOT_URL=http://46.101.210.33 -e MONGO_URL=mongodb://levyraati:s4l4s4n4@172.17.0.20:27017/levyraati -e MONGO_OPLOG_URL=mongodb://levyraati:s4l4s4n4@172.17.0.12:27017/local -v /root/levyraati_install:/bundle -p 8080:80 meteorhacks/meteord:base
+docker run -d -e ROOT_URL=http://46.101.210.33 -e MONGO_URL=mongodb://levyraati:pass@172.17.0.20:27017/levyraati -e MONGO_OPLOG_URL=mongodb://levyraati:pass@172.17.0.12:27017/local -v /root/levyraati_install:/bundle -p 8080:80 meteorhacks/meteord:base
 
