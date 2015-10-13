@@ -33,19 +33,21 @@ EXPOSE 27017
 ENTRYPOINT ["usr/bin/mongos"]
 ```
 
-####create mongo servers
+####Create mongo servers
 ```
 docker run -P --name rs1_srv1 -d hnybom/mongodb --replSet rs1 --noprealloc --smallfiles
 docker run -P --name rs1_srv2 -d hnybom/mongodb --replSet rs1 --noprealloc --smallfiles
 docker run -P --name rs1_srv3 -d hnybom/mongodb --replSet rs1 --noprealloc --smallfiles
 ```
-
+####Get ips
+```
 docker inspect rs1_srv1
 172.17.0.12
 docker inspect rs1_srv2
 172.17.0.13
 docker inspect rs1_srv3
 172.17.0.14
+```
 
 mongo --port <port of srv1>
 
@@ -63,7 +65,7 @@ rs.reconfig(cfg)
 rs.status()
 ```
 
-####create mongo config servers
+####Create mongo config servers
 
 ```
 docker run -P --name cfg1 -d hnybom/mongodb --noprealloc --smallfiles --configsvr --dbpath /data/db --port 27017
@@ -71,20 +73,27 @@ docker run -P --name cfg2 -d hnybom/mongodb --noprealloc --smallfiles --configsv
 docker run -P --name cfg3 -d hnybom/mongodb --noprealloc --smallfiles --configsvr --dbpath /data/db --port 27017
 ```
 
+####Get server ips
+```
 docker inspect cfg1
 172.17.0.15
 docker inspect cfg2
 172.17.0.16
 docker inspect cfg3
 172.17.0.17
+```
 
-####create mongo router
+####Create mongo router
 ```
 docker run -P --name mongos1 -d hnybom/mongos --port 27017 --configdb 172.17.0.15:27017,172.17.0.16:27017,172.17.0.17:27017
 ```
 
 IP: 172.17.0.20:27017
 
+
+####Create mongo users
+
+```
 db.createUser(
     {
       user: "levyraati",
@@ -106,7 +115,8 @@ db.addUser(
     }
 )
 
-#### run app
+```
+####Run app
 ```
 docker run -d -e ROOT_URL=http://46.101.210.33 -e MONGO_URL=mongodb://levyraati:pass@172.17.0.20:27017/levyraati -e MONGO_OPLOG_URL=mongodb://levyraati:pass@172.17.0.12:27017/local -v /root/levyraati_install:/bundle -p 8080:80 meteorhacks/meteord:base
 ```
