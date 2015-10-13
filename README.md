@@ -33,6 +33,13 @@ EXPOSE 27017
 ENTRYPOINT ["usr/bin/mongos"]
 ```
 
+####build images
+```
+docker build -t hnybom/mongodb mongod
+docker build -t hnybom/mongos mongos
+```
+
+
 ####Create mongo servers
 ```
 docker run -P --name rs1_srv1 -d hnybom/mongodb --replSet rs1 --noprealloc --smallfiles
@@ -41,12 +48,12 @@ docker run -P --name rs1_srv3 -d hnybom/mongodb --replSet rs1 --noprealloc --sma
 ```
 ####Get ips
 ```
-docker inspect rs1_srv1
-172.17.0.12
-docker inspect rs1_srv2
-172.17.0.13
-docker inspect rs1_srv3
-172.17.0.14
+docker inspect rs1_srv1 | grep IPAddress
+172.17.0.4
+docker inspect rs1_srv2 | grep IPAddress
+172.17.0.5
+docker inspect rs1_srv3 | grep IPAddress
+172.17.0.6
 ```
 
 mongo --port <port of srv1>
@@ -55,15 +62,17 @@ MongoDB shell
 
 ```
 rs.initiate()
-rs.add("172.17.0.13:27017")
-rs.add("172.17.0.14:27017")
+rs.add("172.17.0.5:27017")
+rs.add("172.17.0.6:27017")
 rs.status()
 
 cfg = rs.conf()
-cfg.members[0].host = "172.17.0.12:27017"
+cfg.members[0].host = "172.17.0.4:27017"
 rs.reconfig(cfg)
 rs.status()
 ```
+
+## Optional shard config
 
 ####Create mongo config servers
 
@@ -75,48 +84,79 @@ docker run -P --name cfg3 -d hnybom/mongodb --noprealloc --smallfiles --configsv
 
 ####Get server ips
 ```
-docker inspect cfg1
-172.17.0.15
-docker inspect cfg2
-172.17.0.16
-docker inspect cfg3
-172.17.0.17
+docker inspect cfg1 | grep IPAddress
+172.17.0.7
+docker inspect cfg2 | grep IPAddress
+172.17.0.8
+docker inspect cfg3 | grep IPAddress
+172.17.0.9
 ```
 
 ####Create mongo router
 ```
-docker run -P --name mongos1 -d hnybom/mongos --port 27017 --configdb 172.17.0.15:27017,172.17.0.16:27017,172.17.0.17:27017
+docker run -P --name mongos1 -d hnybom/mongos --port 27017 --configdb 172.17.0.7:27017,172.17.0.8:27017,172.17.0.9:27017
 ```
 
-IP: 172.17.0.20:27017
+IP: 172.17.0.10:27017
 
+```
+sh.addShard("rs1/172.17.0.4:27017")
+sh.status()
+```
+
+##User config and server start
 
 ####Create mongo users
 
 ```
+use admin
+
+db.createUser(
+  {
+    user: "siteUserAdmin",
+    pwd: "password",
+    roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
+  }
+)
+
+use levyraati
+
+db.createUser(
+  {
+    user: "recordsUserAdmin",
+    pwd: "password",
+    roles: [ { role: "userAdmin", db: "levyraati" } ]
+  }
+)
+
+
 db.createUser(
     {
       user: "levyraati",
-      pwd: "pass",
+      pwd: "password",
       roles: [
-         { role: "readWrite", db: "levyraati" },
-         { role: "read", db: "local" }
+         { role: "readWrite", db: "levyraati" }
       ]
     }
 )
+```
+####Create user for opLogging
 
-Mongo 2.4 -->
+```
+mongo -u siteUserAdmin -p password localhost:<srv1_port>/admin
 
-db.addUser(
+db.createUser(
     {
-      user: "levyraati",
-      pwd: "pass",
-      roles: ["readWrite"]
+      user: "opLogged",
+      pwd: "password",
+      roles: [
+         { role: "read", db: "local" }
+      ]
     }
 )
 
 ```
 ####Run app
 ```
-docker run -d -e ROOT_URL=http://46.101.210.33 -e MONGO_URL=mongodb://levyraati:pass@172.17.0.20:27017/levyraati -e MONGO_OPLOG_URL=mongodb://levyraati:pass@172.17.0.12:27017/local -v /root/levyraati_install:/bundle -p 8080:80 meteorhacks/meteord:base
+docker run -d -e ROOT_URL=http://46.101.210.33 -e MONGO_URL=mongodb://levyraati:password@172.17.0.4:27017/levyraati -e MONGO_OPLOG_URL=mongodb://opLogged:password@172.17.0.4:27017,172.17.0.5:27017,172.17.0.6:27017/local?authSource=admin -v /root/levyraati_install:/bundle -p 8080:80 meteorhacks/meteord:base
 ```
