@@ -1,6 +1,6 @@
-# levyraati
+# Levyraati
 
-Song voting app
+Song voting app. Levyraati is a song voting app to 
 
 # Docker installation instructions
 
@@ -33,7 +33,7 @@ EXPOSE 27017
 ENTRYPOINT ["usr/bin/mongos"]
 ```
 
-####build images
+####Build images
 ```
 docker build -t hnybom/mongodb mongod
 docker build -t hnybom/mongos mongos
@@ -58,11 +58,9 @@ docker inspect rs1_srv3 | grep IPAddress
 
 #### Access mongo db bash to user client
 
+```
 docker exec -i -t 4fa68463cacd bash
 
-MongoDB shell
-
-```
 rs.initiate()
 rs.add("172.17.0.2:27017")
 rs.add("172.17.0.3:27017")
