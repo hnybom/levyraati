@@ -42,32 +42,34 @@ docker build -t hnybom/mongos mongos
 
 ####Create mongo servers
 ```
-docker run -P --name rs1_srv1 -d hnybom/mongodb --replSet rs1 --noprealloc --smallfiles
-docker run -P --name rs1_srv2 -d hnybom/mongodb --replSet rs1 --noprealloc --smallfiles
-docker run -P --name rs1_srv3 -d hnybom/mongodb --replSet rs1 --noprealloc --smallfiles
+docker run --name rs1_srv1 -d hnybom/mongodb --replSet rs1 --noprealloc --smallfiles
+docker run --name rs1_srv2 -d hnybom/mongodb --replSet rs1 --noprealloc --smallfiles
+docker run --name rs1_srv3 -d hnybom/mongodb --replSet rs1 --noprealloc --smallfiles
 ```
 ####Get ips
 ```
 docker inspect rs1_srv1 | grep IPAddress
-172.17.0.4
+172.17.0.1
 docker inspect rs1_srv2 | grep IPAddress
-172.17.0.5
+172.17.0.2
 docker inspect rs1_srv3 | grep IPAddress
-172.17.0.6
+172.17.0.3
 ```
 
-mongo --port <port of srv1>
+#### Access mongo db bash to user client
+
+docker exec -i -t 4fa68463cacd bash
 
 MongoDB shell
 
 ```
 rs.initiate()
-rs.add("172.17.0.5:27017")
-rs.add("172.17.0.6:27017")
+rs.add("172.17.0.2:27017")
+rs.add("172.17.0.3:27017")
 rs.status()
 
 cfg = rs.conf()
-cfg.members[0].host = "172.17.0.4:27017"
+cfg.members[0].host = "172.17.0.1:27017"
 rs.reconfig(cfg)
 rs.status()
 ```
@@ -156,7 +158,14 @@ db.createUser(
 )
 
 ```
+
+#### Create nginx reverse proxy
+
+```
+docker run -d -p 80:80 -v /var/run/docker.sock:/tmp/docker.sock:ro jwilder/nginx-proxy
+```
+
 ####Run app
 ```
-docker run -d -e ROOT_URL=http://46.101.210.33 -e MONGO_URL=mongodb://levyraati:password@172.17.0.4:27017/levyraati -e MONGO_OPLOG_URL=mongodb://opLogged:password@172.17.0.4:27017,172.17.0.5:27017,172.17.0.6:27017/local?authSource=admin -v /root/levyraati_install:/bundle -p 8080:80 meteorhacks/meteord:base
+docker run -d -e ROOT_URL=http://mydomain.com -e MONGO_URL=mongodb://levyraati:password@172.17.0.1:27017,172.17.0.2:27017,172.17.0.3:27017/levyraati -e MONGO_OPLOG_URL=mongodb://opLogged:password@172.17.0.1:27017,172.17.0.2:27017,172.17.0.3:27017/local?authSource=admin -e VIRTUAL_HOST=mydomain.com -v /home/levyraati/levyraati/:/bundle meteorhacks/meteord:base
 ```
