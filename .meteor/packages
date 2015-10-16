@@ -8,7 +8,6 @@ accounts-password
 alanning:roles
 iron:router
 twbs:bootstrap
-accounts-ui
 aldeed:collection2
 standard-minifiers
 meteor-base
@@ -33,3 +32,6 @@ juliancwirko:s-alert
 juliancwirko:s-alert-genie
 momentjs:moment
 http
+gadicohen:messageformat
+ian:accounts-ui-bootstrap-3
+accounts-google

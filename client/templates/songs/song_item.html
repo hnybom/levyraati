@@ -3,7 +3,7 @@
         <div class="col-md-6">
             {{#if isOkToEdit}}
                 <div class=" button-col">
-                    <a class="edit-song btn btn-primary" data-songid="{{this._id}}">Edit song</a>
+                    <a class="edit-song btn btn-primary" data-songid="{{this._id}}">{{mf 'song.edit' 'Muokkaa'}}</a>
                 </div>
             {{/if}}
             <h4>Entry by {{getUserName this.creator}}</h4>
@@ -14,7 +14,7 @@
                 <div class="row">
                     <form class="main form rating-form">
                         <div class="form-group">
-                            <label class="control-label col-md-4" for="{{this._id}}_rating">Your raiting:</label>
+                            <label class="control-label col-md-4" for="{{this._id}}_rating">{{mf 'song.rating' 'Sinun mielipiteesi'}}</label>
                             <div class="controls col-md-8">
                                 <span class="starRating" data-songid="{{this._id}}">
                                     <input id="{{this._id}}_rating5"  type="radio" name="{{this._id}}_rating" value="5" {{ratingChecked 5}}>
@@ -33,13 +33,13 @@
                     </form>
                 </div>
             {{/unless}}
-            <h4>Ratings</h4>
+            <h4>{{mf 'song.ratings' 'Tulokset'}}</h4>
             <table class="table">
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Name</th>
-                        <th>Rating</th>
+                        <th>{{mf 'song.ratings.name' 'Nimi'}}</th>
+                        <th>{{mf 'song.ratings.rating' 'Arvosana'}}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,7 +56,7 @@
                 {{/each}}
                 </tbody>
             </table>
-            <span class="average-row"><strong>Average raiting: {{averageRating this}}</strong></span>
+            <span class="average-row"><strong>{{mf 'song.ratings.average' 'Yhteensä'}} {{averageRating this}}</strong></span>
         </div>
     </div>
 </template>

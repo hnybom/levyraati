@@ -84,6 +84,15 @@ a:hover {
 .navbar-brand {
     font-size: 28px;
 }
+
+.dropdown-toggle {
+    background-color: inherit !important;
+}
+
+.dropdown-menu {
+    background-color: #ffffff !important;
+}
+
 .thin-border {
     -webkit-box-shadow: 10px 10px 15px 0px rgba(50, 50, 50, 0.27);
     -moz-box-shadow:    10px 10px 15px 0px rgba(50, 50, 50, 0.27);

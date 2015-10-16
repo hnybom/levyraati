@@ -2,26 +2,25 @@
     <div class="row">
         <div class="col-md-6">
             <h1>Levyraati</h1>
-            <p>Levyraati is a song voting app where YOU can create your own competitions and invite your friends to
-            join. Together you decide the best song by voting.</p>
+            <p>{{mf 'competition.form.text' 'Levyraati on...no levyraati. Kutsu ystäväsi kilpailuusi ja äänestäkää kimpassa paras biisi.'}}</p>
         </div>
         <div class="col-md-6">
-            <h2>Add new competition</h2>
+            <h2>{{mf 'competition.form.head' 'Luo uusi kilpailu'}}</h2>
             <form class="main form">
                 <div class="form-group">
-                    <label class="control-label" for="name">Name:</label>
+                    <label class="control-label" for="name">{{mf 'competition.form.name.label' 'Nimi'}}</label>
                     <div class="controls">
-                        <input name="name" id="name" type="text" value="" placeholder="Comeptition name" class="form-control"/>
+                        <input name="name" id="name" type="text" value="" placeholder="{{mf 'competition.form.name.label'}}" class="form-control"/>
                         <span class="help-block error">{{errorMessage 'name'}}</span>
                     </div>
-                    <label class="control-label" for="name">Description:</label>
+                    <label class="control-label" for="name">{{mf 'competition.form.desc.label' 'Kuvaus'}}</label>
                     <div class="controls">
                         <textarea name="description" id="description" rows="5"
-                               placeholder="Comeptition description" class="form-control"></textarea>
+                               placeholder="{{mf 'competition.form.desc.label'}}" class="form-control"></textarea>
                         <span class="help-block error">{{errorMessage 'description'}}</span>
                     </div>
                 </div>
-                <input type="submit" value="Submit" class="btn btn-primary"/>
+                <input type="submit" value="{{mf 'competition.form.submit.label' 'Luo kilpailu'}}" class="btn btn-primary"/>
             </form>
         </div>
     </div>

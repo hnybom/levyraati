@@ -31,4 +31,102 @@ Meteor.startup(function () {
         // }
     });
 
+    accountsUIBootstrap3.map("fi", {
+        resetPasswordDialog: {
+            title: "Palauta salasanasi",
+            newPassword: "Uusi salasana",
+            newPasswordAgain: "Uusi salasana uudestaan",
+            cancel: "Sulje",
+            submit: "Palauta salasana"
+        },
+        enrollAccountDialog: {
+            title: "Valitse salasana",
+            newPassword: "Uusi salasana",
+            newPasswordAgain: "Uusi salasana uudestaan",
+            cancel: "Sulje",
+            submit: "Aseta salasana"
+        },
+        justVerifiedEmailDialog: {
+            verified: "Sähköpostosoite varmistettu",
+            dismiss: "Ok"
+        },
+        loginButtonsMessagesDialog: {
+            dismiss: "Ok",
+        },
+        loginButtonsLoggedInDropdownActions: {
+            password: "Vaihda salasana",
+            signOut: "Kirjaudu ulos"
+        },
+        loginButtonsLoggedOutDropdown: {
+            signIn: "Kirjaudu sisään",
+            up: "Liity"
+        },
+        loginButtonsLoggedOutPasswordServiceSeparator: {
+            or: "tai"
+        },
+        loginButtonsLoggedOutPasswordService: {
+            create: "Luo",
+            signIn: "Kirjaudu sisään",
+            forgot: "Unohditko salasanasi?",
+            createAcc: "Luo tili"
+        },
+        forgotPasswordForm: {
+            email: "Sähköpostiosoite",
+            reset: "Palauta salasana",
+            invalidEmail: "Virheellinen sähköpostiosoite"
+        },
+        loginButtonsBackToLoginLink: {
+            back: "Peru"
+        },
+        loginButtonsChangePassword: {
+            submit: "Vaihda salasana",
+            cancel: "Peru"
+        },
+        loginButtonsLoggedOutSingleLoginButton: {
+            signInWith: "Kirjaudu sisään tunnuksilla",
+            configure: "Kirjaudu sisään",
+        },
+        loginButtonsLoggedInSingleLogoutButton: {
+            signOut: "Kirjaudu ulos"
+        },
+        loginButtonsLoggedOut: {
+            noLoginServices: "Ei kirjautumispalvelua konfiguroituna"
+        },
+        loginFields: {
+            usernameOrEmail: "Käyttäjätunnus tai sähköposti",
+            username: "käyttäjätunnus",
+            email: "Sähköposti",
+            password: "Salasana"
+        },
+        signupFields: {
+            username: "käyttäjätunnus",
+            email: "Sähköposti",
+            emailOpt: "Sähköposti (ei pakollinen)",
+            password: "Salasana",
+            passwordAgain: "Salasana (uudelleen)"
+        },
+        changePasswordFields: {
+            currentPassword: "Nykyinen salasana",
+            newPassword: "Uusi salasana",
+            newPasswordAgain: "Uusi salasana (uudelleen)"
+        },
+        infoMessages : {
+            emailSent: "Sähköposti lähettety",
+            passwordChanged: "Salasana vaihdettu"
+        },
+        errorMessages: {
+            genericTitle: "Tapahtui virhe",
+            userNotFound: "Käyttäjää ei löydy",
+            invalidEmail: "Virheellinen sähköpostiosoite",
+            incorrectPassword: "Väärä salasana",
+            usernameTooShort: "Käyttäjätunnuksen pitää olla vähintään 3 merkkiä pitkä",
+            passwordTooShort: "Salasanan pitää olla vähintään 6 merkkiä pitkä",
+            passwordsDontMatch: "Salasanat eivät täsmää",
+            newPasswordSameAsOld: "Uuden ja vanhan salasanan tulee olla eriävät",
+            signupsForbidden: "Rekisteröinti kielletty"
+        }
+    });
+
+    accountsUIBootstrap3.setLanguage('fi');
+
 });

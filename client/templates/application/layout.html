@@ -1,4 +1,7 @@
 <template name="levyraatiMainLayout">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
     <body>
         {{> sAlert}}
         {{> header}}
@@ -12,8 +15,8 @@
         </div>
         <footer>
             <div class="container">
-                <p>Implementation by <strong>Henri Nybom 2015</strong></p>
-                <p>Fork me at <a href="https://github.com/hnybom/levyraati">https://github.com/hnybom/levyraati</a></p>
+                <p>{{mf 'footr.imp.by' 'Ohjelmointi '}}<strong>Henri Nybom 2015</strong></p>
+                <p>{{mf 'footr.fork' 'Hae mut '}}<a href="https://github.com/hnybom/levyraati">https://github.com/hnybom/levyraati</a></p>
             </div>
         </footer>
     </body>

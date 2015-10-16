@@ -13,7 +13,7 @@
     {{else}}
         <div class="row">
             <div class="col-md-6">
-                <h2>Users in the competition</h2>
+                <h2>{{mf 'competition.users' 'Kilpailussa mukana'}}</h2>
                 <div class="added-users">
                     <ul class="user-list">
                         <div class="row">
@@ -34,51 +34,51 @@
 
             <div class="col-md-6">
                 {{#if isCreator}}
-                    <h2>Add users</h2>
+                    <h2>{{mf 'competition.add.users' 'Lisää käyttäjiä kilpailuun'}}</h2>
 
                     <div class="controls">
                         <form class="user form">
                             <div class="controls">
-                                <label class="control-label" for="users">add user:</label>
+                                <label class="control-label" for="users">{{mf 'competition.add.user.label' 'Lisää käyttäjiä kilpailuun'}}</label>
                                 {{> inputAutocomplete settings=settings id="users" class="input-xlarge form-control"}}
-                                <span class="help-block">You can select individual users by typing '@'-mark and add
-                                    multiple users from your previous competition by selecting a competition with '!'-mark.</span>
+                                <span class="help-block">
+                                    {{mf 'competition.add.user.help' 'Voit lisätä yksittäisen käyttäjän kirjoittamalla @-merkin ja edellisen kilpailun kaikki käyttäjät valitsemalla kilpailun kirjoittamalla !-merkin.'}}
+                                </span>
                             </div>
                         </form>
                     </div>
-                    <button id="end-competition" class="btn btn-danger">End competition</button>
+                    <button id="end-competition" class="btn btn-danger">{{mf 'competition.end' 'Päätä kilpailu'}}</button>
                 {{/if}}
             </div>
         </div>
         {{#if noSongSubmitted}}
             <div class="row spaceme">
                 <div class="col-md-6">
-                    <h2>Add new song</h2>
-                    <p>Here you can add your killer tune to the competition.
-                        Currently spotify URIs and youtube hashes are supported.
-                        So just go for it and take home the win!</p>
+                    <h2>{{mf 'competition.add.song.title' 'Lisää biisi'}}</h2>
+                    <p>{{mf 'competition.add.song.text' 'Tästä voit lisätä oman hitti biisis mukaan kilpailuun. Lisääminen tukee spotify URI:ja ja youtbe hash:jä, joten antaa palaa.'}}
+                    </p>
                 </div>
                 <div class="col-md-6">
 
                     <form class="main form">
                         <div class="form-group">
 
-                            <label class="control-label" for="uri">Spotify URI or Youtube Code:</label>
+                            <label class="control-label" for="uri">{{mf 'competition.add.song.uri.label' 'Spotify URI tai youtube hash'}}</label>
 
                             <div class="controls">
                                 <input name="uri" id="uri" type="text" value=""
-                                       placeholder="Spotify URI or Youtube code" class="form-control"/>
+                                       placeholder="{{mf 'competition.add.song.uri.label' }}" class="form-control"/>
                                 <span class="help-block error">{{errorMessage 'uri'}}</span>
                             </div>
 
-                            <label class="control-label" for="url">Name:</label>
+                            <label class="control-label" for="url">{{mf 'competition.add.song.name.label' 'Biisin nimi'}}</label>
                             <div class="controls">
-                                <input name="name" id="name" type="text" value="" placeholder="Song name"
+                                <input name="name" id="name" type="text" value="" placeholder="{{mf 'competition.add.song.name.label'}}"
                                        class="form-control"/>
                                 <span class="help-block error">{{errorMessage 'name'}}</span>
                             </div>
 
-                            <input type="submit" value="Submit" class="btn btn-primary"/>
+                            <input type="submit" value="{{mf 'competition.add.song.submit.label' 'Lisää biisi'}}" class="btn btn-primary"/>
                         </div>
                     </form>
                 </div>

@@ -2,11 +2,11 @@
     <div class="row">
         {{#with winner}}
             <div class="col-md-6">
-                <h3>And the winner is...</h3>
+                <h3>{{mf 'competition.end.head' 'Ja voittaja on...'}}</h3>
                 <h2>{{getUserName this.creator}}</h2>
-                <p>Congratulations to the winner! He/She truly knows what's hot right now.
-                    You can listen to the winner once again and jam the night away.</p>
-                <a id="seeTheResults" class="btn btn-success">See all of the results.</a>
+                <p>{{mf 'competition.end.text' 'Onnittelut voittajalle! Hän on selkeesti biisien keisari, sadan päämies, satelliitti helvetin pääperkele. Tsekkaa voitto biisi vielä tästä'}}
+                </p>
+                <a id="seeTheResults" class="btn btn-success">{{mf 'competition.end.results' 'Katso kaikki tulokset'}}</a>
             </div>
             <div class="col-md-6">
                 <div class="jumbotron-player">
