@@ -16,6 +16,10 @@ a:hover {
     color: #D9534F;
 }
 
+.btn-GitHub {
+    color: #000000;
+}
+
 .navbar-brand {
     color: #ffffff;
     font-size: 50px !important;

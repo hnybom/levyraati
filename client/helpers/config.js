@@ -128,5 +128,6 @@ Meteor.startup(function () {
     });
 
     accountsUIBootstrap3.setLanguage('fi');
+    mfPkg.setLocale('fi');
 
 });
