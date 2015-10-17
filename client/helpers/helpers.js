@@ -14,7 +14,10 @@ Template.registerHelper('formatDate', function(date) {
 });
 Template.registerHelper('getUserName', function(userId) {
     var user = Meteor.users.findOne(userId);
-    if (user) return user.username;
+    if (user) {
+        if(user.profile && user.profile.name) return user.profile.name
+        return user.username;
+    }
     return "";
 });
 
