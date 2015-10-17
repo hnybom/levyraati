@@ -32,11 +32,21 @@ a:hover {
     transition: background .5s ease-in-out,padding .5s ease-in-out;
 }
 
+@media screen and (max-width: 767px) {
+    .navbar-custom {
+        background-color:rgba(0, 0, 0, 1);
+    }
+}
+
 .navbar-custom.top-nav-collapse {
     color: #EEEEEE;
     padding: 0;
     border-bottom: 1px solid rgba(255,255,255,.3);
     background: #000;
+}
+
+.margin-left10 {
+    margin-left: 10px;
 }
 
 .jumbotron {
@@ -85,7 +95,7 @@ a:hover {
     font-size: 28px;
 }
 
-.dropdown-toggle {
+.nav .dropdown-toggle {
     background-color: inherit !important;
 }
 
