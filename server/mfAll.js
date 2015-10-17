@@ -881,7 +881,7 @@ mfPkg.syncAll({
     "footr.imp.by": {
       "key": "footr.imp.by",
       "lang": "en",
-      "text": "Implemented by",
+      "text": "Implemented by ",
       "ctime": 1445002326081,
       "mtime": 1445002326081,
       "revisionId": "K49pRamjGkZCkwp9d",
@@ -890,10 +890,10 @@ mfPkg.syncAll({
     "footr.fork": {
       "key": "footr.fork",
       "lang": "en",
-      "text": "Check me out",
+      "text": "Check me out ",
       "ctime": 1445002331861,
-      "mtime": 1445002331861,
-      "revisionId": "gomNsgczhgwftXKMm",
+      "mtime": 1445066395481,
+      "revisionId": "AmwtHT7suZCQTz4Rz",
       "_id": "wRwNX8fBSZNkdK68w"
     },
     "common.loading": {
@@ -907,6 +907,6 @@ mfPkg.syncAll({
     }
   }
 }, {
-  "exportedAt": 1445002355209,
-  "updatedAt": 1445002352296
+  "exportedAt": 1445066431379,
+  "updatedAt": 1445066395481
 });
