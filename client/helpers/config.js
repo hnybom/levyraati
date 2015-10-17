@@ -58,7 +58,7 @@ Meteor.startup(function () {
             signOut: "Kirjaudu ulos"
         },
         loginButtonsLoggedOutDropdown: {
-            signIn: "Kirjaudu sisään",
+            signIn: "Kirjaudu",
             up: "Liity"
         },
         loginButtonsLoggedOutPasswordServiceSeparator: {
