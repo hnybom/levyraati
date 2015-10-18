@@ -45,11 +45,13 @@ function resultDialog(results, songs) {
     }
 
     bootbox.dialog({
-            title: "And the results...",
+            title:  mf('competition.end.popup.title', 'Ja tässä tulokset'),
             message: '<div class="row">  ' +
                      '<div class="col-md-12">' +
                      '<table class="table">' +
-                     '<thead><tr><th>#</th><th>User</th><th>Song name</th><th>Rating</th></tr></thead>' +
+                     '<thead><tr><th>#</th><th>' + mf('competition.end.popup.user', 'Käyttäjä') +
+                     '</th><th>' + mf('competition.end.popup.song', 'Biisin nimi') +
+                     '</th><th>' + mf('competition.end.popup.rating', 'Tulos') + '</th></tr></thead>' +
                      '<tbody>' + table + '</tbody>' +
                      '</table></div>' +
                      '</div>',

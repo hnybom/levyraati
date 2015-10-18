@@ -2,7 +2,7 @@
  * Created by henriny on 13/02/15.
  */
 Accounts.ui.config({
-    passwordSignupFields: 'USERNAME_AND_OPTIONAL_EMAIL'
+    passwordSignupFields: 'USERNAME_ONLY'
 });
 
 Meteor.startup(function () {

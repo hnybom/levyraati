@@ -9,26 +9,26 @@ function escapeHtml(str) {
 
 function editDialog(song) {
     bootbox.dialog({
-            title: "Edit song info",
+            title: mf('song.edit.title', 'Muokkaa biisin tietoja'),
             message: '<div class="row">  ' +
             '<form class="form"> ' +
             '<div class="form-group"> ' +
-            '<label class="col-md-2 control-label" for="name">Name</label> ' +
+            '<label class="col-md-2 control-label" for="name">' + mf('competition.add.song.name.label') + '</label> ' +
             '<div class="col-md-10"> ' +
             '<input id="name" name="name" type="text" placeholder="" class="form-control input-md" value="' + escapeHtml(song.name) + '"> ' +
-            '<span class="help-block">New name for the song</span> </div> ' +
+            '<span class="help-block">' + mf('song.edit.name.help', 'Uusi nimi biisille') + '</span> </div> ' +
             '</div> ' +
             '<div class="form-group"> ' +
             '<label class="col-md-2 control-label" for="uri">URI</label> ' +
             '<div class="col-md-10"> ' +
             '<input id="uri" name="uri" type="text" placeholder="" class="form-control input-md" value="' + escapeHtml(song.uri) + '"> ' +
-            '<span class="help-block">New URI for the song</span> </div> ' +
+            '<span class="help-block">' + mf('song.edit.uri.help', 'Uusi URI tai hash biisille') + '</span> </div> ' +
             '</div> ' +
             '</div> </div>' +
             '</form></div>',
             buttons: {
                 success: {
-                    label: "Save",
+                    label: "OK",
                     className: "btn-success",
                     callback: function () {
                         var name = $('#name').val();
@@ -41,7 +41,7 @@ function editDialog(song) {
                         var errors = validateSong(songAttributes);
 
                         if (errors.name || errors.uri) {
-                            sAlert.error('Sorry song info not valid!');
+                            sAlert.error( mf('validation.song.edit.invalid', 'Sori biisin tiedot eivät ole valideja.'));
                         } else {
                         Meteor.call('editSong', songAttributes, function(error, result) {
                             // display the error to the user and abort

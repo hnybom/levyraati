@@ -12,10 +12,6 @@ a:hover {
     margin-top: 20px;
 }
 
-.error {
-    color: #D9534F;
-}
-
 .btn-GitHub, .or-text {
     color: #000000;
 }
@@ -137,6 +133,10 @@ a:hover {
 
 .help-block {
     color: #EEEEEE;
+}
+
+.error {
+    color: #D9534F;
 }
 
 .closed-competitions .text-primary {

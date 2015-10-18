@@ -375,7 +375,7 @@ mfPkg.syncAll({
     "competition.form.text": {
       "key": "competition.form.text",
       "lang": "fi",
-      "text": "Levyraati on...no levyraati. Kutsu ystäväsi kilpailuusi ja äänestäkää kimpassa paras biisi.",
+      "text": "Musaraati on...no musaraati. Kutsu ystäväsi kilpailuusi ja äänestäkää kimpassa paras biisi.",
       "ctime": 1445001665949,
       "mtime": 1445001665949,
       "revisionId": "b9RoeeXTk6fbesWNL",
@@ -800,7 +800,7 @@ mfPkg.syncAll({
     "competition.form.text": {
       "key": "competition.form.text",
       "lang": "en",
-      "text": "Levyraati is a song voting app where YOU can create your own competitions and invite your friends to join. Together you decide the best song by voting.",
+      "text": "Musaraati is a song voting app where YOU can create your own competitions and invite your friends to join. Together you decide the best song by voting.",
       "ctime": 1445002273142,
       "mtime": 1445002273142,
       "revisionId": "7ZLJpLAjn9mSn4nPj",
