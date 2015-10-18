@@ -21,12 +21,9 @@ Template.registerHelper('getUserName', function(userId) {
     return "";
 });
 
-Template.registerHelper('isSpotify', function isSpotifySong(uri) {
-    if(uri) {
-        if(uri.indexOf("spotify") > -1 && uri.split(':').length == 3) return true;
-        return false;
-    }
-});
+Template.registerHelper('isSpotify', isSpotifySong);
+
+Template.registerHelper('isYoutube', isYoutubeHash);
 
 Template.registerHelper('ifNotEmpty', function(item, options) {
     if(item){

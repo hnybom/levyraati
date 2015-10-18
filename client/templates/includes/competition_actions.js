@@ -140,7 +140,7 @@ Template.competitionActions.events({
     'change #uri': function(event, template) {
         var $name = $('#name');
         var uri = $('#uri').val();
-        if(UI._globalHelpers.isSpotify(uri)) {
+        if(isSpotifySong(uri)) {
             $name.addClass('loading-gif');
             $name.prop('disabled', true);
             Meteor.call('fetchTrackData', {spotifyUri: uri},
@@ -151,7 +151,20 @@ Template.competitionActions.events({
                         $('#name').val(result.artists[0].name + " - " + result.name);
                     }
                 });
-        } else {
+        } else if(isYoutubeHash(uri)){
+            $name.addClass('loading-gif');
+            $name.prop('disabled', true);
+            Meteor.call('fetchVideoData', {youtbeId: uri},
+                function(error, result) {
+                    $('#name').removeClass('loading-gif');
+                    $name.prop('disabled', false);
+                    if(!error && result.snippet && result.snippet.title) {
+                        $('#name').val(result.snippet.title);
+                    }
+                });
+
+        }
+        else {
             $name.val('');
 
         }

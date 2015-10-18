@@ -16,7 +16,7 @@ Spotify.fetchTrackData = function(id) {
     if(trackResponse.statusCode === 200){
         return trackResponse.data;
     } else{
-        throw new Meteor.Error(500, "Bitly call failed with error: "+shortenResponse.status_txt);
+        throw new Meteor.Error(500, "Spotify call failed with error: "+trackResponse.status_txt);
     }
 
 
