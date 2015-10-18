@@ -141,8 +141,8 @@ mfPkg.addNative(
     "file": "./client/templates/songs/song_item.js",
     "line": 12,
     "func": "function editDialog(song)",
-    "mtime": 1445163473100,
-    "ctime": 1445163473100
+    "ctime": 1445163473100,
+    "mtime": 1445163473100
   },
   "song.edit.name.help": {
     "key": "song.edit.name.help",
@@ -150,8 +150,8 @@ mfPkg.addNative(
     "file": "./client/templates/songs/song_item.js",
     "line": 19,
     "func": "function editDialog(song)",
-    "mtime": 1445163473100,
-    "ctime": 1445163473100
+    "ctime": 1445163473100,
+    "mtime": 1445163473100
   },
   "song.edit.uri.help": {
     "key": "song.edit.uri.help",
@@ -159,8 +159,8 @@ mfPkg.addNative(
     "file": "./client/templates/songs/song_item.js",
     "line": 25,
     "func": "function editDialog(song)",
-    "mtime": 1445163473101,
-    "ctime": 1445163473101
+    "ctime": 1445163473101,
+    "mtime": 1445163473101
   },
   "validation.song.edit.invalid": {
     "key": "validation.song.edit.invalid",
@@ -168,8 +168,8 @@ mfPkg.addNative(
     "file": "./client/templates/songs/song_item.js",
     "line": 44,
     "func": "function ()",
-    "mtime": 1445163473101,
-    "ctime": 1445163473101
+    "ctime": 1445163473101,
+    "mtime": 1445163473101
   },
   "login.please.text": {
     "key": "login.please.text",
@@ -254,12 +254,12 @@ mfPkg.addNative(
   },
   "competition.add.song.text": {
     "key": "competition.add.song.text",
-    "text": "Tästä voit lisätä oman hitti biisis mukaan kilpailuun. Lisääminen tukee spotify URI:ja ja youtbe hash:jä, joten antaa palaa.",
+    "text": "Tästä voit lisätä oman hittibiisisi mukaan kilpailuun. Lisääminen tukee spotify URI:a ja youtube hash-koodeja, joten antaa palaa.",
     "file": "./client/templates/includes/competition_actions.html",
     "line": 58,
     "template": "userPill",
     "ctime": 1445001665949,
-    "mtime": 1445001665949
+    "mtime": 1445191936246
   },
   "competition.add.song.uri.label": {
     "key": "competition.add.song.uri.label",
@@ -321,8 +321,8 @@ mfPkg.addNative(
     "file": "./client/templates/includes/competition_end.js",
     "line": 48,
     "func": "function compare(a,b)",
-    "mtime": 1445163473101,
-    "ctime": 1445163473101
+    "ctime": 1445163473101,
+    "mtime": 1445163473101
   },
   "competition.end.popup.user": {
     "key": "competition.end.popup.user",
@@ -330,8 +330,8 @@ mfPkg.addNative(
     "file": "./client/templates/includes/competition_end.js",
     "line": 52,
     "func": "function compare(a,b)",
-    "mtime": 1445163473101,
-    "ctime": 1445163473101
+    "ctime": 1445163473101,
+    "mtime": 1445163473101
   },
   "competition.end.popup.song": {
     "key": "competition.end.popup.song",
@@ -339,8 +339,8 @@ mfPkg.addNative(
     "file": "./client/templates/includes/competition_end.js",
     "line": 53,
     "func": "function compare(a,b)",
-    "mtime": 1445163473101,
-    "ctime": 1445163473101
+    "ctime": 1445163473101,
+    "mtime": 1445163473101
   },
   "competition.end.popup.rating": {
     "key": "competition.end.popup.rating",
@@ -348,8 +348,8 @@ mfPkg.addNative(
     "file": "./client/templates/includes/competition_end.js",
     "line": 54,
     "func": "function compare(a,b)",
-    "mtime": 1445163473101,
-    "ctime": 1445163473101
+    "ctime": 1445163473101,
+    "mtime": 1445163473101
   },
   "competition.form.text": {
     "key": "competition.form.text",
@@ -436,7 +436,7 @@ mfPkg.addNative(
     "key": "footr.imp.by",
     "text": "Ohjelmointi ",
     "file": "./client/templates/application/layout.html",
-    "line": 28,
+    "line": 14,
     "template": "levyraatiMainLayout",
     "ctime": 1445001665949,
     "mtime": 1445001665949
@@ -445,7 +445,7 @@ mfPkg.addNative(
     "key": "footr.fork",
     "text": "Hae mut ",
     "file": "./client/templates/application/layout.html",
-    "line": 29,
+    "line": 15,
     "template": "levyraatiMainLayout",
     "ctime": 1445001665949,
     "mtime": 1445001665949
@@ -461,6 +461,6 @@ mfPkg.addNative(
   }
 }, 
 {
-  "extractedAt": 1445163473101,
-  "updatedAt": 1445163473101
+  "extractedAt": 1445191936246,
+  "updatedAt": 1445191936246
 });
