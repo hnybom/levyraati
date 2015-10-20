@@ -13,22 +13,16 @@
             {{#unless isOwner this}}
                 <div class="row">
                     <form class="main form rating-form">
-                        <div class="form-group">
-                            <label class="control-label col-md-4" for="{{this._id}}_rating">{{mf 'song.rating' 'Sinun mielipiteesi'}}</label>
-                            <div class="controls col-md-8">
-                                <span class="starRating" data-songid="{{this._id}}">
-                                    <input id="{{this._id}}_rating5"  type="radio" name="{{this._id}}_rating" value="5" {{ratingChecked 5}}>
-                                    <label for="{{this._id}}_rating5">5</label>
-                                    <input id="{{this._id}}_rating4" type="radio" name="{{this._id}}_rating" value="4" {{ratingChecked 4}}>
-                                    <label for="{{this._id}}_rating4">4</label>
-                                    <input id="{{this._id}}_rating3" type="radio" name="{{this._id}}_rating" value="3" {{ratingChecked 3}}>
-                                    <label for="{{this._id}}_rating3">3</label>
-                                    <input id="{{this._id}}_rating2" type="radio" name="{{this._id}}_rating" value="2" {{ratingChecked 2}}>
-                                    <label for="{{this._id}}_rating2">2</label>
-                                    <input id="{{this._id}}_rating1" type="radio" name="{{this._id}}_rating" value="1" {{ratingChecked 1}}>
-                                    <label for="{{this._id}}_rating1">1</label>
-                                 </span>
-                            </div>
+                        <!-- Split button -->
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{mf 'song.rating' 'Sinun mielipiteesi'}} <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu rating-menu">
+                                {{#each loopCount 10}}
+                                    <li class="{{ratingChecked this.val ..}}"><a href="javascript:void(0)" data-rating="{{this.val}}">{{this.val}}</a></li>
+                                {{/each}}
+                            </ul>
                         </div>
                     </form>
                 </div>
@@ -48,9 +42,7 @@
                         <td>{{inc @index}}</td>
                         <td>{{getUserName this.userId}}</td>
                         <td>
-                            {{#each loopCount this.rating}}
-                                <img src="../images/star-on.svg"/>
-                            {{/each}}
+                            {{this.rating}}
                         </td>
                     </tr>
                 {{/each}}
