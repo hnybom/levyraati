@@ -61,12 +61,12 @@ Template.songItem.events({
         var songId = $(event.target).data('songid');
         editDialog(Songs.findOne({_id: songId}));
     },
-    'click .starRating input': function(event, template) {
+    'click .rating-menu a': function(event, template) {
 
         var ratingData = {
-            rating: parseInt(event.target.value),
-            songId: this._id,
-            competitionId: this.competitionId
+            rating: (parseInt($(event.target).data('rating'))),
+            songId: template.data._id,
+            competitionId: template.data.competitionId
         }
 
         Meteor.call('insertOrUpdateRating', ratingData, function(error, result) {
@@ -75,7 +75,7 @@ Template.songItem.events({
                 throwError(error.reason)
         });
     }
-})
+});
 
 function calculateRating(songRatings) {
     var totalRating = 0;
@@ -99,8 +99,8 @@ Template.songItem.helpers({
     getRatingsForThisSong : function(song) {
       return Ratings.find({songId:song._id});
     },
-    ratingChecked : function(value) {
-        var myRating = Ratings.findOne({songId:this._id, userId:Meteor.userId()});
+    ratingChecked : function(value, parentContext) {
+        var myRating = Ratings.findOne({songId:parentContext._id, userId:Meteor.userId()});
         if(myRating) return myRating.rating == value ? "checked":"";
         return "";
     },
@@ -114,7 +114,7 @@ Template.songItem.helpers({
     loopCount: function(count){
         var countArr = [];
         for (var i=0; i<count; i++){
-            countArr.push({});
+            countArr.push({ind:i, val:i + 1});
         }
         return countArr;
     },
