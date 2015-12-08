@@ -18,6 +18,9 @@
                     <ul class="user-list">
                         <div class="row">
                             <div class="col-md-12">
+                                <li class="btn btn-md">
+                                    <span class="user-name">{{getUserName competition.creator}}</span>
+                                </li>
                                 {{#each competition.users}}
                                     <li class="btn btn-md">
                                         <span class="user-name">{{getUserName this}}</span>
