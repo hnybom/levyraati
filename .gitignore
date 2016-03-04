@@ -4,6 +4,7 @@
 .meteor/local
 .meteor/meteorite
 
+deploy
 levyraati.tar.gz
 Dockerfile
 

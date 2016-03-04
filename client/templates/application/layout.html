@@ -2,15 +2,15 @@
     {{> sAlert}}
     {{> header}}
     <div class="jumbotron">
-        <div class="container">
+        <div class="container-fluid">
             {{> yield "jumbotron"}}
         </div>
     </div>
-    <div class="container main-content">
+    <div class="container-fluid main-content">
         {{>yield}}
     </div>
     <footer>
-        <div class="container">
+        <div class="container-fluid">
             <p>{{mf 'footr.imp.by' 'Ohjelmointi '}}<strong>Henri Nybom 2015</strong></p>
             <p>{{mf 'footr.fork' 'Hae mut '}}<a href="https://github.com/hnybom/levyraati">Musaraati</a></p>
         </div>

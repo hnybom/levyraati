@@ -1,14 +1,24 @@
 <template name="competitionsList">
-    <div class="row text-center open-competitions competitions">
-        <h3>{{mf 'competitions.open' 'Avoimet kilpailut'}}</h3>
+    <div class="row">
+        <div class="col-xs-12">
+            <h3>{{mf 'competitions.open' 'Avoimet kilpailut'}}</h3>
+        </div>
+    </div>
+    <div class="row text-center open-competitions competitions flex-container">
         {{#each openCompetitions}}
             {{> competitionItem}}
         {{/each}}
     </div>
-    <div class="row text-center spaceme closed-competitions competitions">
-        <h3>{{mf 'competitions.closed' 'Päättyneet kilpailut'}}</h3>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <h3>{{mf 'competitions.closed' 'Päättyneet kilpailut'}}</h3>
+        </div>
+    </div>
+    <div class="row text-center spaceme closed-competitions competitions flex-container">
         {{#each closedCompetitions}}
             {{> competitionItem}}
         {{/each}}
     </div>
+
 </template>

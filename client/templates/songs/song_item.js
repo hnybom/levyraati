@@ -74,6 +74,9 @@ Template.songItem.events({
             if (error)
                 throwError(error.reason)
         });
+    },
+    'click .see-all-song-results': function(e, template) {
+        $(e.target).parents('.flip-container').toggleClass('flip');
     }
 });
 
@@ -121,29 +124,6 @@ Template.songItem.helpers({
     averageRating: function(song) {
         var songRatings = Ratings.find({songId:this._id}).fetch();
         return calculateRating(songRatings);
-    },
-    getSongBackground: function() {
-        // Disabled for now.
-        if(true) return "song-bg2";
-
-        var mod = Math.floor(Math.random() * 5)
-        if(mod == 0) {
-            return "song-bg1";
-        }
-        if(mod == 1) {
-            return "song-bg2";
-        }
-        if(mod == 2) {
-            return "song-bg3";
-        }
-        if(mod == 3) {
-            return "song-bg4";
-        }
-        if(mod == 4) {
-            return "song-bg5";
-        }
-
-        return "song-bg2";
     },
     editSongDialog : editDialog
 });

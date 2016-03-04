@@ -1,9 +1,9 @@
 <template name="competitionPage">
-    <div class="songs">
-      {{#each songs}}
+
+    {{#each songs}}
         {{> songItem }}
-      {{/each}}
-    </div>
+    {{/each}}
+
     <div id="chat-button" class="chat-button btn btn-primary">{{mf 'competition.chat.open' 'Avaa chat'}}</div>
     <div id="chat-box" class="chat-container" style="display: none">
         {{>chat chats=chats competitionId=competition._id}}

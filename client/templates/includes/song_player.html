@@ -1,12 +1,11 @@
 <template name="songPlayer">
     {{#if this.uri}}
     <div class="songItem">
-        <h3>{{name}}</h3>
         {{#if isSpotify this.uri}}
-            <iframe src="https://embed.spotify.com/?uri={{uri}}" width="300" height="380"
+            <iframe src="https://embed.spotify.com/?uri={{uri}}" width="600" height="480"
                     frameborder="0" allowtransparency="true"></iframe>
         {{else}}
-            <iframe id="ytplayer" type="text/html" width="450" height="300"
+            <iframe id="ytplayer" type="text/html" width="650" height="400"
                     src="http://www.youtube.com/embed/{{uri}}?autoplay=0"
                     frameborder="0">
             </iframe>

@@ -1,0 +1,23 @@
+h3 {
+  text-transform: uppercase;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.thumbnail {
+  height: 400px;
+  overflow: hidden;
+}
+
+.pad30 {
+  padding: 30px;
+}
+
+.no-link {
+
+}

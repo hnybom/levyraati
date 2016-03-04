@@ -1,54 +1,70 @@
 <template name="songItem">
-    <div class="row song-entry thin-border margin-bottom">
-        <div class="col-md-6">
-            {{#if isOkToEdit}}
-                <div class=" button-col">
-                    <a class="edit-song btn btn-primary" data-songid="{{this._id}}">{{mf 'song.edit' 'Muokkaa'}}</a>
+    <div class="song-entry thin-border margin-bottom flip-container">
+        <div class="flipper">
+            <div class="front">
+                <div class="col-md-8">
+                    <div class="spaceme"></div>
+                    {{>songPlayer this}}
                 </div>
-            {{/if}}
-            <h4>Entry by {{getUserName this.creator}}</h4>
-            {{>songPlayer this}}
-        </div>
-        <div class="col-md-6">
-            {{#unless isOwner this}}
-                <div class="row">
-                    <form class="main form rating-form">
-                        <!-- Split button -->
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                {{mf 'song.rating' 'Sinun mielipiteesi'}} <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu rating-menu">
-                                {{#each loopCount 10}}
-                                    <li class="{{ratingChecked this.val ..}}"><a href="javascript:void(0)" data-rating="{{this.val}}">{{this.val}}</a></li>
-                                {{/each}}
-                            </ul>
-                        </div>
-                    </form>
+                <div class="col-md-4">
+                    <h3>{{name}}</h3>
+                    <h4>{{getUserName this.creator}}</h4>
+                    {{#unless isOwner this}}
+                        <form class="main form rating-form">
+                            <!-- Split button -->
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{mf 'song.rating' 'Sinun mielipiteesi'}} <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu rating-menu">
+                                    {{#each loopCount 10}}
+                                        <li class="{{ratingChecked this.val ..}}"><a href="javascript:void(0)" data-rating="{{this.val}}">{{this.val}}</a></li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                        </form>
+                    {{/unless}}
+                    <span class="average-row"><strong>{{mf 'song.ratings.average' 'Yhteensä'}} {{averageRating this}}</strong></span>
+                    <div class="button-col">
+                        {{#if isOkToEdit}}
+                            <a class="edit-song btn btn-primary" data-songid="{{this._id}}">{{mf 'song.edit' 'Muokkaa'}}</a>
+                        {{/if}}
+                        <a class="btn btn-primary see-all-song-results">{{mf 'competition.end.results' 'Katso kaikki tulokset'}}</a>
+                    </div>
                 </div>
-            {{/unless}}
-            <h4>{{mf 'song.ratings' 'Tulokset'}}</h4>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>{{mf 'song.ratings.name' 'Nimi'}}</th>
-                        <th>{{mf 'song.ratings.rating' 'Arvosana'}}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                {{#each getRatingsForThisSong this}}
-                    <tr>
-                        <td>{{inc @index}}</td>
-                        <td>{{getUserName this.userId}}</td>
-                        <td>
-                            {{this.rating}}
-                        </td>
-                    </tr>
-                {{/each}}
-                </tbody>
-            </table>
-            <span class="average-row"><strong>{{mf 'song.ratings.average' 'Yhteensä'}} {{averageRating this}}</strong></span>
+            </div>
+            <div class="back">
+                <div class="col-xs-12">
+                    <h4>{{mf 'song.ratings' 'Tulokset'}}</h4>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>{{mf 'song.ratings.name' 'Nimi'}}</th>
+                            <th>{{mf 'song.ratings.rating' 'Arvosana'}}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#each getRatingsForThisSong this}}
+                            <tr>
+                                <td>{{inc @index}}</td>
+                                <td>{{getUserName this.userId}}</td>
+                                <td>
+                                    {{this.rating}}
+                                </td>
+                            </tr>
+                        {{/each}}
+                        </tbody>
+                    </table>
+                    <span class="average-row"><strong>{{mf 'song.ratings.average' 'Yhteensä'}} {{averageRating this}}</strong></span>
+                    <div class=" button-col">
+                        {{#if isOkToEdit}}
+                            <a class="edit-song btn btn-primary" data-songid="{{this._id}}">{{mf 'song.edit' 'Muokkaa'}}</a>
+                        {{/if}}
+                        <a class="btn btn-primary see-all-song-results">{{mf 'common.back' 'Takaisin'}}</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>

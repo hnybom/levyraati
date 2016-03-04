@@ -1,11 +1,14 @@
-a{
+body {
+    font-family: 'Source Sans Pro', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+a {
     text-decoration : none;
 }
 
 a:hover {
     text-decoration: none;
-    font-weight: bold;
-    cursor: hand;
+    cursor: pointer;
 }
 
 .spaceme {
@@ -17,6 +20,8 @@ a:hover {
 }
 
 .navbar-brand {
+    margin-top: 10px;
+    font-size: 28px;
     color: #ffffff;
     font-size: 50px !important;
 }
@@ -40,10 +45,10 @@ a:hover {
 }
 
 .navbar-custom.top-nav-collapse {
-    color: #EEEEEE;
+    color: #FFF;
     padding: 0;
     border-bottom: 1px solid rgba(255,255,255,.3);
-    background: #000;
+    background-color:rgba(0, 0, 0, 0.9);
 }
 
 .margin-left10 {
@@ -54,9 +59,10 @@ a:hover {
     color: #EEEEEE;
     padding-top: 140px;
     padding-bottom: 100px;
-    background: url(../images/gramophone-macro.jpg);
+    background: url(../images/people-party-dancing-music.jpg);
     background-size : cover;
     background-color: #000000;
+    text-shadow: 1px 1px #555;
 }
 
 .jumbotron-player {
@@ -89,11 +95,7 @@ a:hover {
 
 .navbar-right {
     margin-top: 15px;
-    margin-right: 150px;
-}
-
-.navbar-brand {
-    font-size: 28px;
+    margin-right: 10px;
 }
 
 .nav .dropdown-toggle {
@@ -104,31 +106,8 @@ a:hover {
     background-color: #ffffff !important;
 }
 
-.thin-border {
-    -webkit-box-shadow: 10px 10px 15px 0px rgba(50, 50, 50, 0.27);
-    -moz-box-shadow:    10px 10px 15px 0px rgba(50, 50, 50, 0.27);
-    box-shadow:         10px 10px 15px 0px rgba(50, 50, 50, 0.27);
-}
-
 .margin-bottom {
  margin-bottom: 20px;
-}
-
-.competitions {
-    background-color: #EEEEEE;
-    padding-bottom: 20px;
-}
-
-.competitions h3 {
-    text-transform: uppercase;
-}
-
-.open-competitions .owner .text-primary {
-    color: #5CB85C;
-}
-
-.open-competitions .text-primary {
-    color: #FED136;
 }
 
 .help-block {
@@ -206,23 +185,10 @@ a:hover {
     margin-top: 10px;
 }
 
-.songItem {
-    xpadding: 10px;
-}
-
 .song-entry {
-    color: #EEEEEE;
+    color: #000;
     padding-bottom: 20px;
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,45484d+100 */
-    background: #000000;
-    background: -moz-linear-gradient(-45deg,  #000000 0%, #45484d 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#000000), color-stop(100%,#45484d)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(-45deg,  #000000 0%,#45484d 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(-45deg,  #000000 0%,#45484d 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(-45deg,  #000000 0%,#45484d 100%); /* IE10+ */
-    background: linear-gradient(135deg,  #000000 0%,#45484d 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#45484d',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-
+    background-color: #CCC;
 }
 
 footer {
