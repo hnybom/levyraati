@@ -71,6 +71,7 @@ a:hover {
 
 .main-content {
     margin-bottom: 200px;
+    max-width: 1400px;
 }
 
 .rating-row {
@@ -175,10 +176,6 @@ a:hover {
 
 .bootbox-body .help-block {
     color: #555555;
-}
-
-.button-col {
-    margin-top: 10px;
 }
 
 .rating-form {

@@ -6,7 +6,19 @@
   }
 
   &.spotify {
-    padding-bottom: 15%;
+    padding-bottom: 20%;
+
+    @media (min-width: 528px) {
+      padding-bottom: 50%;
+    }
+
+    @media (min-width: 768px) {
+      padding-bottom: 40%;
+    }
+
+    @media (min-width: 991px) {
+      padding-bottom: 50%;
+    }
   }
 
   padding-top: 25px;
@@ -42,4 +54,23 @@
 
 .competitor {
   font-style: italic;
+}
+
+.rating-form {
+  display: inline-block;
+}
+
+.button-col {
+  position: absolute;
+  bottom: 20px;
+}
+
+.table-container {
+  max-height: 75%;
+
+  @media (min-width: 528px) {
+    max-height: 80%;
+  }
+
+  overflow-y: auto;
 }

@@ -3,6 +3,19 @@
 }
 
 .flip-container, .front, .back {
+
+  @media (min-width: 528px) {
+    height: 700px;
+  }
+
+  @media (min-width: 768px) {
+    height: 490px;
+  }
+
+  @media (min-width: 991px) {
+    height: 650px;
+  }
+
   height: 550px;
   width: 100%;
 }
