@@ -1,14 +1,16 @@
 <template name="songItem">
-    <div class="song-entry thin-border margin-bottom flip-container">
-        <div class="flipper">
-            <div class="front">
-                <div class="col-md-8">
+    <div class="col-md-4">
+        <div class="thin-border song-card margin-bottom flip-container">
+            <div class="flipper">
+                <div class="front pad15">
+                    <h3 class="song-title">{{name}}</h3>
+                    <p class="competitor">{{getUserName this.creator}}</p>
                     <div class="spaceme"></div>
                     {{>songPlayer this}}
-                </div>
-                <div class="col-md-4">
-                    <h3>{{name}}</h3>
-                    <h4>{{getUserName this.creator}}</h4>
+                    <div class="spaceme"></div>
+
+                    <div class="total-rating-heading"><strong>{{ mf 'competition.end.popup.rating' 'Tulos'}}</strong></div>
+                    <div class="total-rating">{{averageRating this}}</div>
                     {{#unless isOwner this}}
                         <form class="main form rating-form">
                             <!-- Split button -->
@@ -24,7 +26,7 @@
                             </div>
                         </form>
                     {{/unless}}
-                    <span class="average-row"><strong>{{mf 'song.ratings.average' 'Yhteensä'}} {{averageRating this}}</strong></span>
+
                     <div class="button-col">
                         {{#if isOkToEdit}}
                             <a class="edit-song btn btn-primary" data-songid="{{this._id}}">{{mf 'song.edit' 'Muokkaa'}}</a>
@@ -32,9 +34,7 @@
                         <a class="btn btn-primary see-all-song-results">{{mf 'competition.end.results' 'Katso kaikki tulokset'}}</a>
                     </div>
                 </div>
-            </div>
-            <div class="back">
-                <div class="col-xs-12">
+                <div class="back pad15">
                     <h4>{{mf 'song.ratings' 'Tulokset'}}</h4>
                     <table class="table">
                         <thead>
