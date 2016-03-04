@@ -16,7 +16,7 @@ function calculateResults(songs) {
         var rating = calculateRating(Ratings.find({songId: elem._id}).fetch());
         return {
             song: elem,
-            rating: rating
+            rating: parseFloat(rating)
         };
     });
     return results;
@@ -31,11 +31,11 @@ function resultDialog(results, songs) {
         return 0;
     }
 
-    results.sort(compare);
+    var sortedResults = results.sort(compare);
 
     var table = '';
-    for(var key in results) {
-        var result = results[key];
+    for(var key in sortedResults) {
+        var result = sortedResults[key];
         var song = result.song;
         var ind = parseInt(key) + 1;
         table = table.concat('<tr><td>' + ind  + '</td><td>'
@@ -76,7 +76,7 @@ Template.competitionEnd.helpers({
         var results = calculateResults(songs);
 
         var winner = results.reduce(function(result, currentval) {
-            if(!result) {
+            if(!result.rating) {
                 return currentval;
             }
             if(result.rating < currentval.rating) {
@@ -84,7 +84,7 @@ Template.competitionEnd.helpers({
             }
 
             return result;
-        });
+        }, {});
 
         return winner.song;
 
