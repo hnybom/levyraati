@@ -1,0 +1,15 @@
+---
+- name: "Local host tasks"
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+  - name: "Build project"
+    command: meteor build --architecture=os.linux.x86_64 /Users/hnybom/WebstormProjects/levyraati
+- name: "Copy build package to production"
+  hosts: levyraati_prod
+  tasks:
+  - name: "scp files"
+    copy: src=/Users/hnybom/WebstormProjects/levyraati/levyraati.tar.gz dest=/home/levyraati/levyraati/ owner=levyraati group=levyraati
+  - name: "Restart docker"
+    command: docker restart 20b28ee1f9b9
+...

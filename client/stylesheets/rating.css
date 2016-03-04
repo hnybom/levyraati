@@ -1,3 +1,7 @@
+.rating-menu {
+    display: inline-flex;
+}
+
 .rating-menu .checked {
     background-color: #2B77BA;
 }
