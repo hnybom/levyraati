@@ -30,9 +30,9 @@ mfPkg.addNative(
   "validation.competition.valid": {
     "key": "validation.competition.valid",
     "text": "Valitse kunnollinen kilpailu",
-    "file": "./lib/collections/competitions.js",
-    "line": 26,
-    "func": "function(competitionId)",
+    "file": "./lib/collections/songs.js",
+    "line": 22,
+    "func": "function(songId)",
     "ctime": 1445001665949,
     "mtime": 1445001665949
   },
@@ -76,8 +76,26 @@ mfPkg.addNative(
     "key": "validation.song.edit.own",
     "text": "Et voi muokata kuin omii biisei.",
     "file": "./lib/collections/songs.js",
-    "line": 54,
+    "line": 61,
     "func": "function (songAttributes)",
+    "ctime": 1445001665949,
+    "mtime": 1445001665949
+  },
+  "competition.end.popup.rating": {
+    "key": "competition.end.popup.rating",
+    "text": "Tulos",
+    "file": "./client/templates/includes/competition_end.js",
+    "line": 54,
+    "func": "function compare(a,b)",
+    "ctime": 1445163473101,
+    "mtime": 1445163473101
+  },
+  "song.rating": {
+    "key": "song.rating",
+    "text": "Sinun mielipiteesi",
+    "file": "./client/templates/songs/song_item.html",
+    "line": 18,
+    "template": "songItem",
     "ctime": 1445001665949,
     "mtime": 1445001665949
   },
@@ -85,25 +103,25 @@ mfPkg.addNative(
     "key": "song.edit",
     "text": "Muokkaa",
     "file": "./client/templates/songs/song_item.html",
-    "line": 6,
+    "line": 62,
     "template": "songItem",
     "ctime": 1445001665949,
     "mtime": 1445001665949
   },
-  "song.rating": {
-    "key": "song.rating",
-    "text": "Sinun mielipiteesi",
+  "song.results": {
+    "key": "song.results",
+    "text": "Tulokset",
     "file": "./client/templates/songs/song_item.html",
-    "line": 17,
+    "line": 31,
     "template": "songItem",
-    "ctime": 1445001665949,
-    "mtime": 1445001665949
+    "mtime": 1457159274620,
+    "ctime": 1457159274620
   },
   "song.ratings": {
     "key": "song.ratings",
     "text": "Tulokset",
     "file": "./client/templates/songs/song_item.html",
-    "line": 36,
+    "line": 35,
     "template": "songItem",
     "ctime": 1445001665949,
     "mtime": 1445001665949
@@ -134,6 +152,15 @@ mfPkg.addNative(
     "template": "songItem",
     "ctime": 1445001665949,
     "mtime": 1445001665949
+  },
+  "common.back": {
+    "key": "common.back",
+    "text": "Takaisin",
+    "file": "./client/templates/songs/song_item.html",
+    "line": 64,
+    "template": "songItem",
+    "mtime": 1457159274620,
+    "ctime": 1457159274620
   },
   "song.edit.title": {
     "key": "song.edit.title",
@@ -202,7 +229,7 @@ mfPkg.addNative(
     "key": "competition.users",
     "text": "Kilpailussa mukana",
     "file": "./client/templates/includes/competition_actions.html",
-    "line": 16,
+    "line": 18,
     "template": "userPill",
     "ctime": 1445001665949,
     "mtime": 1445001665949
@@ -211,7 +238,7 @@ mfPkg.addNative(
     "key": "competition.add.users",
     "text": "Lisää käyttäjiä kilpailuun",
     "file": "./client/templates/includes/competition_actions.html",
-    "line": 37,
+    "line": 42,
     "template": "userPill",
     "ctime": 1445001665949,
     "mtime": 1445001665949
@@ -220,7 +247,7 @@ mfPkg.addNative(
     "key": "competition.add.user.label",
     "text": "Lisää käyttäjiä kilpailuun",
     "file": "./client/templates/includes/competition_actions.html",
-    "line": 42,
+    "line": 47,
     "template": "userPill",
     "ctime": 1445001665949,
     "mtime": 1445001665949
@@ -229,7 +256,7 @@ mfPkg.addNative(
     "key": "competition.add.user.help",
     "text": "Voit lisätä yksittäisen käyttäjän kirjoittamalla @-merkin ja edellisen kilpailun kaikki käyttäjät valitsemalla kilpailun kirjoittamalla !-merkin.",
     "file": "./client/templates/includes/competition_actions.html",
-    "line": 45,
+    "line": 50,
     "template": "userPill",
     "ctime": 1445001665949,
     "mtime": 1445001665949
@@ -238,7 +265,7 @@ mfPkg.addNative(
     "key": "competition.end",
     "text": "Päätä kilpailu",
     "file": "./client/templates/includes/competition_actions.html",
-    "line": 50,
+    "line": 55,
     "template": "userPill",
     "ctime": 1445001665949,
     "mtime": 1445001665949
@@ -247,7 +274,7 @@ mfPkg.addNative(
     "key": "competition.add.song.title",
     "text": "Lisää biisi",
     "file": "./client/templates/includes/competition_actions.html",
-    "line": 57,
+    "line": 62,
     "template": "userPill",
     "ctime": 1445001665949,
     "mtime": 1445001665949
@@ -256,7 +283,7 @@ mfPkg.addNative(
     "key": "competition.add.song.text",
     "text": "Tästä voit lisätä oman hittibiisisi mukaan kilpailuun. Lisääminen tukee spotify URI:a ja youtube hash-koodeja, joten antaa palaa.",
     "file": "./client/templates/includes/competition_actions.html",
-    "line": 58,
+    "line": 63,
     "template": "userPill",
     "ctime": 1445001665949,
     "mtime": 1445191936246
@@ -265,7 +292,7 @@ mfPkg.addNative(
     "key": "competition.add.song.uri.label",
     "text": "Spotify URI tai youtube hash",
     "file": "./client/templates/includes/competition_actions.html",
-    "line": 66,
+    "line": 71,
     "template": "userPill",
     "ctime": 1445001665949,
     "mtime": 1445001665949
@@ -274,7 +301,7 @@ mfPkg.addNative(
     "key": "competition.add.song.name.label",
     "text": "Biisin nimi",
     "file": "./client/templates/includes/competition_actions.html",
-    "line": 74,
+    "line": 79,
     "template": "userPill",
     "ctime": 1445001665949,
     "mtime": 1445001665949
@@ -283,7 +310,7 @@ mfPkg.addNative(
     "key": "competition.add.song.submit.label",
     "text": "Lisää biisi",
     "file": "./client/templates/includes/competition_actions.html",
-    "line": 81,
+    "line": 86,
     "template": "userPill",
     "ctime": 1445001665949,
     "mtime": 1445001665949
@@ -342,15 +369,6 @@ mfPkg.addNative(
     "ctime": 1445163473101,
     "mtime": 1445163473101
   },
-  "competition.end.popup.rating": {
-    "key": "competition.end.popup.rating",
-    "text": "Tulos",
-    "file": "./client/templates/includes/competition_end.js",
-    "line": 54,
-    "func": "function compare(a,b)",
-    "ctime": 1445163473101,
-    "mtime": 1445163473101
-  },
   "competition.form.text": {
     "key": "competition.form.text",
     "text": "Musaraati on...no musaraati. Kutsu ystäväsi kilpailuusi ja äänestäkää kimpassa paras biisi.",
@@ -396,20 +414,47 @@ mfPkg.addNative(
     "ctime": 1445001665949,
     "mtime": 1445001665949
   },
-  "competition.to": {
-    "key": "competition.to",
-    "text": "Mee tsekkaan tää...",
-    "file": "./client/templates/competitions/competition_item.html",
-    "line": 12,
-    "template": "competitionItem",
-    "ctime": 1445001665949,
-    "mtime": 1445001665949
+  "competition.sort.title": {
+    "key": "competition.sort.title",
+    "text": "Järjestä",
+    "file": "./client/templates/competitions/competition_page.html",
+    "line": 4,
+    "template": "competitionPage",
+    "mtime": 1457159274621,
+    "ctime": 1457159274621
+  },
+  "competition.sort.date": {
+    "key": "competition.sort.date",
+    "text": "Lisätty",
+    "file": "./client/templates/competitions/competition_page.html",
+    "line": 6,
+    "template": "competitionPage",
+    "mtime": 1457159274621,
+    "ctime": 1457159274621
+  },
+  "competition.sort.score": {
+    "key": "competition.sort.score",
+    "text": "Tulos",
+    "file": "./client/templates/competitions/competition_page.html",
+    "line": 7,
+    "template": "competitionPage",
+    "mtime": 1457159274621,
+    "ctime": 1457159274621
+  },
+  "competition.sort.name": {
+    "key": "competition.sort.name",
+    "text": "Nimi",
+    "file": "./client/templates/competitions/competition_page.html",
+    "line": 8,
+    "template": "competitionPage",
+    "mtime": 1457159274621,
+    "ctime": 1457159274621
   },
   "competition.chat.open": {
     "key": "competition.chat.open",
     "text": "Avaa chat",
     "file": "./client/templates/competitions/competition_page.html",
-    "line": 7,
+    "line": 22,
     "template": "competitionPage",
     "ctime": 1445001665949,
     "mtime": 1445001665949
@@ -418,7 +463,7 @@ mfPkg.addNative(
     "key": "competitions.open",
     "text": "Avoimet kilpailut",
     "file": "./client/templates/competitions/competitions_list.html",
-    "line": 3,
+    "line": 4,
     "template": "competitionsList",
     "ctime": 1445001665949,
     "mtime": 1445001665949
@@ -427,7 +472,7 @@ mfPkg.addNative(
     "key": "competitions.closed",
     "text": "Päättyneet kilpailut",
     "file": "./client/templates/competitions/competitions_list.html",
-    "line": 9,
+    "line": 15,
     "template": "competitionsList",
     "ctime": 1445001665949,
     "mtime": 1445001665949
@@ -436,7 +481,7 @@ mfPkg.addNative(
     "key": "footr.imp.by",
     "text": "Ohjelmointi ",
     "file": "./client/templates/application/layout.html",
-    "line": 14,
+    "line": 16,
     "template": "levyraatiMainLayout",
     "ctime": 1445001665949,
     "mtime": 1445001665949
@@ -445,7 +490,7 @@ mfPkg.addNative(
     "key": "footr.fork",
     "text": "Hae mut ",
     "file": "./client/templates/application/layout.html",
-    "line": 15,
+    "line": 17,
     "template": "levyraatiMainLayout",
     "ctime": 1445001665949,
     "mtime": 1445001665949
@@ -458,9 +503,19 @@ mfPkg.addNative(
     "template": "loading",
     "ctime": 1445001665949,
     "mtime": 1445001665949
+  },
+  "competition.to": {
+    "key": "competition.to",
+    "text": "Mee tsekkaan tää...",
+    "file": "./client/templates/competitions/competition_item.html",
+    "line": 12,
+    "template": "competitionItem",
+    "ctime": 1445001665949,
+    "mtime": 1457159274621,
+    "removed": true
   }
 }, 
 {
-  "extractedAt": 1445191936246,
-  "updatedAt": 1445191936246
+  "extractedAt": 1457159274621,
+  "updatedAt": 1457159274621
 });
