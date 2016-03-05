@@ -33,7 +33,7 @@
 /* back, initially hidden pane */
 .back {
   transform: rotateY(180deg);
-  min-height: 530px;
+  min-height: 540px;
 
   @media (max-width: 767px) and (min-width: 510px) {
     min-height: 680px;

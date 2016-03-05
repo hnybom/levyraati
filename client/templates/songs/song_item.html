@@ -5,7 +5,6 @@
                 <div class="front pad15">
                     <h3 class="song-title">{{name}}</h3>
                     <p><span class="created-date">{{formatDateWithoutTime created}}</span>&nbsp;&nbsp;<span class="competitor">{{getUserName this.creator}}</span></p>
-                    <div class="spaceme"></div>
                     {{>songPlayer this}}
                     <div class="total-rating-heading"><strong>{{ mf 'competition.end.popup.rating' 'Tulos'}}</strong></div>
                     <div class="total-rating">{{averageRating this}}</div>
