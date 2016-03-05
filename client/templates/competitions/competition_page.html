@@ -1,16 +1,15 @@
 <template name="competitionPage">
     <div class="row">
-        <div class="col-xs-12 center">
-            <h3>{{mf 'competition.sort.title' 'Järjestä'}}</h3>
+        <div class="col-xs-12">
             <div class="sort">
-                <a class="btn btn-primary sort-date">{{mf 'competition.sort.date' 'Lisätty'}}</a>
-                <a class="btn btn-primary sort-score">{{mf 'competition.sort.score' 'Tulos'}}</a>
-                <a class="btn btn-primary sort-name">{{mf 'competition.sort.name' 'Nimi'}}</a>
+                <strong>{{mf 'competition.sort.title' 'Järjestä'}}:</strong>&nbsp;
+                <a class="btn btn-default sort-date selected">{{mf 'competition.sort.date' 'Lisätty'}}</a>
+                <a class="btn btn-default sort-score">{{mf 'competition.sort.score' 'Tulos'}}</a>
+                <a class="btn btn-default sort-name">{{mf 'competition.sort.name' 'Nimi'}}</a>
             </div>
         </div>
     </div>
     <div class="spaceme"></div>
-    <hr />
     <div class="song-grid">
         <div class="row">
             {{#each songs}}

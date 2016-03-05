@@ -2,3 +2,17 @@
   margin-left: -15px;
   margin-right: -15px;
 }
+
+.sort {
+  margin-top: 10px;
+}
+
+.selected {
+  background-color: #2B77BA;
+  color: #FFFFFF;
+
+  &:hover {
+    background-color: #2B77BA;
+    color: #FFFFFF;
+  }
+}

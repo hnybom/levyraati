@@ -1,3 +1,15 @@
+function handleSorting(event, sortBy) {
+    var isSelected = $(event.target).hasClass('selected');
+    $('.sort').find('a').removeClass('selected');
+
+    if (isSelected) {
+        $('.song-grid').isotope({ sortBy : 'date' , sortAscending: false});
+        $('.sort').find('.sort-date').addClass('selected');
+    } else {
+        $('.song-grid').isotope(sortBy);
+        $(event.target).addClass('selected');
+    }
+}
 /**
  * Created by hnybom on 7.10.2015.
  */
@@ -12,13 +24,13 @@ Template.competitionPage.events({
         });
     },
     'click .sort-date': function(event, template) {
-        $('.song-grid').isotope({ sortBy : 'date', sortAscending: false });
+        handleSorting(event, {sortBy: 'date', sortAscending: false});
     },
     'click .sort-score': function(event, template) {
-        $('.song-grid').isotope({ sortBy : 'score', sortAscending: false });
+        handleSorting(event, { sortBy : 'score', sortAscending: false });
     },
     'click .sort-name': function(event, template) {
-        $('.song-grid').isotope({ sortBy : 'songname', sortAscending: true});
+        handleSorting(event, { sortBy : 'songname', sortAscending: true});
     }
 });
 
@@ -29,7 +41,7 @@ Template.competitionPage.rendered = function() {
         getSortData: {
             songname: '.song-title',
             date: function (elem) {
-                return moment($(elem).find('.created-date').text(), 'DD.MM.YYYY').toDate();
+                return new Date($(elem).data('real-date'));
             },
             score: '.total-rating parseFloat'
         }
