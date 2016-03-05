@@ -71,9 +71,15 @@ Template.songItem.events({
 
         Meteor.call('insertOrUpdateRating', ratingData, function(error, result) {
             // display the error to the user and abort
-            if (error)
-                throwError(error.reason)
+            if (error) {
+                throwError(error.reason);
+            }
+            else {
+                $('.song-grid').isotope('updateSortData');
+            }
+
         });
+
     },
     'click .see-all-song-results': function(e, template) {
         $(e.target).parents('.flip-container').toggleClass('flip');
