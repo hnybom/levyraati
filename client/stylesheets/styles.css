@@ -23,11 +23,12 @@ a:hover {
     margin-top: 10px;
     font-size: 28px;
     color: #ffffff;
-    font-size: 50px !important;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 .navbar-custom {
-    padding: 20px 0;
+    padding: 10px 0;
     border-bottom: 0;
     letter-spacing: 1px;
     color: #EEEEEE;
@@ -63,6 +64,7 @@ a:hover {
     background-size : cover;
     background-color: #000000;
     text-shadow: 1px 1px #555;
+    margin-bottom: 0;
 }
 
 .jumbotron-player {
@@ -192,7 +194,6 @@ footer {
     padding: 3px 0 0 0;
     color: #EEEEEE;
     background-color: #000000;
-    position: fixed;
     bottom: 0;
     width: 100%;
 }

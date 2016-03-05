@@ -7,18 +7,6 @@
 
   &.spotify {
     padding-bottom: 20%;
-
-    @media (min-width: 528px) {
-      padding-bottom: 50%;
-    }
-
-    @media (min-width: 768px) {
-      padding-bottom: 40%;
-    }
-
-    @media (min-width: 991px) {
-      padding-bottom: 50%;
-    }
   }
 
   padding-top: 25px;
@@ -35,8 +23,17 @@
 }
 
 .song-card {
-  background-color: #000000;
-  color: #EEEEEE;
+  .front {
+    background-color: #000000;
+    color: #EEEEEE;
+  }
+
+  .back {
+    background-color: #FFF;
+    border: 1px solid #CCCCCC;
+    color: #000;
+  }
+
 }
 
 .song-title {
@@ -65,16 +62,10 @@
 }
 
 .button-col {
-  position: absolute;
-  bottom: 20px;
+
 }
 
 .table-container {
-  max-height: 75%;
-
-  @media (min-width: 528px) {
-    max-height: 80%;
-  }
-
+  max-height: 360px;
   overflow-y: auto;
 }

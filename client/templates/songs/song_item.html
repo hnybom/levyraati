@@ -1,15 +1,15 @@
 <template name="songItem">
-    <div class="col-sm-6">
-        <div class="thin-border song-card margin-bottom flip-container">
+    <div class="song-grid-item col-md-4 col-sm-6 col-xs-12">
+        <div class="song-card margin-bottom flip-container">
             <div class="flipper">
                 <div class="front pad15">
                     <h3 class="song-title">{{name}}</h3>
-                    <p class="competitor">{{getUserName this.creator}}</p>
+                    <p><span class="created-date">{{formatDateWithoutTime created}}</span>&nbsp;&nbsp;<span class="competitor">{{getUserName this.creator}}</span></p>
                     <div class="spaceme"></div>
                     {{>songPlayer this}}
                     <div class="total-rating-heading"><strong>{{ mf 'competition.end.popup.rating' 'Tulos'}}</strong></div>
                     <div class="total-rating">{{averageRating this}}</div>
-
+                    <div class="spaceme"></div>
                     <div class="button-col">
                         {{#unless isOwner this}}
                             <form class="main form rating-form">
@@ -29,7 +29,7 @@
                         {{#if isOkToEdit}}
                             <a class="edit-song btn btn-primary" data-songid="{{this._id}}">{{mf 'song.edit' 'Muokkaa'}}</a>
                         {{/if}}
-                        <a class="btn btn-default see-all-song-results">{{mf 'competition.end.results' 'Katso kaikki tulokset'}}</a>
+                        <a class="btn btn-default see-all-song-results">{{mf 'song.results' 'Tulokset'}}</a>
                     </div>
                 </div>
                 <div class="back pad15">

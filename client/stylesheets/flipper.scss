@@ -3,20 +3,7 @@
 }
 
 .flip-container, .front, .back {
-
-  @media (min-width: 528px) {
-    height: 700px;
-  }
-
-  @media (min-width: 768px) {
-    height: 490px;
-  }
-
-  @media (min-width: 991px) {
-    height: 650px;
-  }
-
-  height: 550px;
+  height: 100%;
   width: 100%;
 }
 
@@ -31,13 +18,13 @@
 /* hide back of pane during swap */
 .front, .back {
   backface-visibility: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
 /* front pane, placed above back */
 .front {
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: 2;
   /* for firefox 31 */
   transform: rotateY(0deg);
@@ -46,4 +33,10 @@
 /* back, initially hidden pane */
 .back {
   transform: rotateY(180deg);
+  min-height: 530px;
+
+  @media (max-width: 767px) and (min-width: 510px) {
+    min-height: 680px;
+  }
+
 }

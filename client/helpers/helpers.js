@@ -12,6 +12,11 @@ $(window).scroll(function() {
 Template.registerHelper('formatDate', function(date) {
     return moment(date).format('hh:mm:ss / DD-MM-YYYY');
 });
+
+Template.registerHelper('formatDateWithoutTime', function(date) {
+    return moment(date).format('DD.MM.YYYY');
+});
+
 Template.registerHelper('getUserName', function(userId) {
     var user = Meteor.users.findOne(userId);
     if (user) {

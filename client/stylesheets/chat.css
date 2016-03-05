@@ -60,9 +60,18 @@
 
 .chat-button {
     position: fixed;
-    bottom: 20px;
+    color: #FFF;
+    padding: 5px 40px 8px 40px;
+    bottom: 0;
     right: 20px;
     z-index: 10;
+    background-color: #337AB7;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.chat-button:hover {
+    cursor: pointer;
 }
 
 .chat-container {

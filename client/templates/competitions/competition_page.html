@@ -1,10 +1,25 @@
 <template name="competitionPage">
+    <div class="row">
+        <div class="col-xs-12 center">
+            <h3>{{mf 'competition.sort.title' 'Järjestä'}}</h3>
+            <div class="sort">
+                <a class="btn btn-primary sort-date">{{mf 'competition.sort.date' 'Lisätty'}}</a>
+                <a class="btn btn-primary sort-score">{{mf 'competition.sort.score' 'Tulos'}}</a>
+                <a class="btn btn-primary sort-name">{{mf 'competition.sort.name' 'Nimi'}}</a>
+            </div>
+        </div>
+    </div>
+    <div class="spaceme"></div>
+    <hr />
+    <div class="song-grid">
+        <div class="row">
+            {{#each songs}}
+                {{> songItem }}
+            {{/each}}
+        </div>
+    </div>
 
-    {{#each songs}}
-        {{> songItem }}
-    {{/each}}
-
-    <div id="chat-button" class="chat-button btn btn-primary">{{mf 'competition.chat.open' 'Avaa chat'}}</div>
+    <div id="chat-button" class="chat-button">{{mf 'competition.chat.open' 'Avaa chat'}}</div>
     <div id="chat-box" class="chat-container" style="display: none">
         {{>chat chats=chats competitionId=competition._id}}
     </div>
