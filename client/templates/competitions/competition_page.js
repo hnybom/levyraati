@@ -37,7 +37,7 @@ Template.competitionPage.events({
 Template.competitionPage.rendered = function() {
     $('.song-grid').isotope({
         itemSelector: '.song-grid-item',
-        layoutMode: 'fitRows',
+        layoutMode: 'masonry',
         getSortData: {
             songname: '.song-title',
             date: function (elem) {
