@@ -4,7 +4,7 @@
             <h3>{{mf 'competitions.open' 'Avoimet kilpailut'}}</h3>
         </div>
     </div>
-    <div class="row text-center open-competitions competitions flex-container">
+    <div class="row text-center open-competitions competitions">
         {{#each openCompetitions}}
             {{> competitionItem}}
         {{/each}}
@@ -15,7 +15,7 @@
             <h3>{{mf 'competitions.closed' 'Päättyneet kilpailut'}}</h3>
         </div>
     </div>
-    <div class="row text-center spaceme closed-competitions competitions flex-container">
+    <div class="row text-center spaceme closed-competitions competitions">
         {{#each closedCompetitions}}
             {{> competitionItem}}
         {{/each}}

@@ -1,3 +1,10 @@
 <template name="loginPage">
-
+    <div class="spaceme"></div>
+    <div class="image-grid flex-container center">
+        {{#each loopCount 14}}
+            <div class="image-grid-item">
+                <img src="/images/grid/{{this.val}}" height="200px">
+            </div>
+        {{/each}}
+    </div>
 </template>
