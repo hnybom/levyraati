@@ -3,9 +3,10 @@
         <div class="song-card margin-bottom flip-container">
             <div class="flipper">
                 <div class="front pad15">
-                    <div class="spaceme"></div>
-                    <h3 class="song-title">{{name}}</h3>
-                    <p><span class="created-date">{{formatDateWithoutTime created}}</span>&nbsp;&nbsp;<span class="competitor">{{getUserName this.creator}}</span></p>
+                    <div class="card-top">
+                        <h3 class="song-title">{{name}}</h3>
+                        <p class="song-meta"><span class="created-date">{{formatDateWithoutTime created}}</span>&nbsp;&nbsp;<span class="competitor">{{getUserName this.creator}}</span></p>
+                    </div>
                     {{>songPlayer this}}
                     <div class="total-rating-heading"><strong>{{ mf 'competition.end.popup.rating' 'Tulos'}}</strong></div>
                     <div class="total-rating">{{averageRating this}}</div>

@@ -1,3 +1,5 @@
+@import "variables";
+
 .songItem {
   position: relative;
 
@@ -34,10 +36,20 @@
     color: #000;
   }
 
+  .card-top {
+    margin-top: -15px;
+  }
+
 }
 
 .song-title {
-  font-size: 15px;
+  color: $cta-color;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.song-meta {
+  color: #CCCCCC;
 }
 
 .total-rating-heading {
@@ -51,6 +63,7 @@
   font-size: 50px;
   text-transform: uppercase;
   font-weight: bold;
+  color: $cta-color;
 }
 
 .competitor {
