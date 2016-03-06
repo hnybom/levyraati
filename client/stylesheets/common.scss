@@ -2,6 +2,12 @@ h3 {
   text-transform: uppercase;
 }
 
+.jumbotron {
+  .container-fluid {
+    max-width: 1400px;
+  }
+}
+
 .center {
   text-align: center;
 }
