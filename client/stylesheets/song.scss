@@ -70,11 +70,24 @@
   font-style: italic;
 }
 
+.my-rating {
+}
+
 .rating-form {
   display: inline-block;
+}
+
+.average-row {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
 }
 
 .table-container {
   max-height: 320px;
   overflow-y: auto;
+
+  th {
+    text-transform: uppercase;
+  }
 }

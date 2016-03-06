@@ -17,7 +17,7 @@
                                 <!-- Split button -->
                                 <div class="btn-group dropup">
                                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        {{mf 'song.rating' 'Sinun mielipiteesi'}} <span class="caret"></span>
+                                        {{mf 'song.rating' 'Sinun mielipiteesi'}} <span class="my-rating">{{myRating this}}</span>&nbsp;<span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu rating-menu">
                                         {{#each loopCount 10}}
@@ -34,7 +34,9 @@
                     </div>
                 </div>
                 <div class="back pad15">
-                    <h4>{{mf 'song.ratings' 'Tulokset'}}</h4>
+                    <div class="card-top">
+                        <h3>{{mf 'song.ratings' 'Tulokset'}}</h3>
+                    </div>
                     <div class="table-container">
                         <table class="table">
                             <thead>
@@ -57,8 +59,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="spaceme"></div>
-                    <span class="average-row"><strong>{{mf 'song.ratings.average' 'Yhteensä'}} {{averageRating this}}</strong></span>
+                    <div class="average-row"><strong>{{mf 'song.ratings.average' 'Yhteensä'}} {{averageRating this}}</strong></div>
                     <div class=" button-col">
                         <a class="btn btn-default see-all-song-results">{{mf 'common.back' 'Takaisin'}}</a>
                     </div>

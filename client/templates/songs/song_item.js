@@ -108,6 +108,11 @@ Template.songItem.helpers({
     getRatingsForThisSong : function(song) {
       return Ratings.find({songId:song._id});
     },
+    myRating : function(song) {
+        var myRating = Ratings.findOne({songId:song._id, userId:Meteor.userId()});
+        if(myRating) return "( " + myRating.rating + " )";
+        return "";
+    },
     ratingChecked : function(value, parentContext) {
         var myRating = Ratings.findOne({songId:parentContext._id, userId:Meteor.userId()});
         if(myRating) return myRating.rating == value ? "checked":"";
