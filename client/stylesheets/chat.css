@@ -61,7 +61,7 @@
 .chat-button {
     position: fixed;
     color: #FFF;
-    padding: 5px 40px 8px 40px;
+    padding: 5px 20px 8px 20px;
     bottom: 0;
     right: 20px;
     z-index: 10;
