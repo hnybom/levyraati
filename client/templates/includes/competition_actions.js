@@ -11,7 +11,7 @@ Template.competitionActions.helpers({
     },
     settings: function() {
         return {
-            limit: 5,
+            limit: 25,
             rules: [
                 {
                     token: '!',

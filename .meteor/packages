@@ -9,7 +9,6 @@ alanning:roles
 iron:router
 twbs:bootstrap
 aldeed:collection2
-standard-minifiers
 meteor-base
 mobile-experience
 mongo
@@ -36,3 +35,5 @@ gadicohen:messageformat
 ian:accounts-ui-bootstrap-3
 fourseven:scss
 isotope:isotope
+standard-minifier-css
+standard-minifier-js
